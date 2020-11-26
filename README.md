@@ -21,10 +21,12 @@ See user stories and models below for more details on functionality.
 * Category
   * Name
   * Videos (has many)
+  * Brands (has many brands through videos)
   * Main Category (belongs to)
   
 * Brand
   * Name
+  * Categories (has many categories through videos)
   * Videos (has many)
 
 * Main Category
