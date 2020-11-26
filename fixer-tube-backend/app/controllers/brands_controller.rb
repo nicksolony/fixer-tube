@@ -3,8 +3,8 @@ class BrandsController < ApplicationController
 
     def index
         brands = Brand.all
-        # render json: brands, include: :main_category
-        render json: brands
+        render json: brands, include: [:categories, :videos]
+        
     end
 
     def show

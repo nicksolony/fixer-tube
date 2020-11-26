@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :videos
   resources :brands
   resources :categories
   resources :main_categories, only: [:index]
