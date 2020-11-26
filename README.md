@@ -7,7 +7,7 @@ See user stories and models below for more details on functionality.
 * A user is able to view youtube videos, add new videos to the app, edit videos and delete videos 
 * A user is able to view categories, add new categories, edit categories and delete categories
 * A user is able to view brands, add new brands, edit brands and delete brands
-//* To make live app, need to create user interface to be able to authenticate users//
+* //To make live app, need to create user interface to be able to authenticate users//
 
 
 ## Models
