@@ -30,7 +30,7 @@ See user stories and models below for more details on functionality.
 * Main Category
   * Name
   * Categories (has many)
-  * Icon_img 
+  * Icon_src 
   * Videos (has many videos through categories)
 
 
