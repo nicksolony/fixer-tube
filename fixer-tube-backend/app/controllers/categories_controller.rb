@@ -11,6 +11,19 @@ class CategoriesController < ApplicationController
         render json: category
     end
 
+    def create
+        if category = Category.create(category_params)
+            render json: category
+        else
+            render json: category.errors.full_messages
+        end
+    end
+
+    def update
+        category.update(category_params)
+        render json: category
+    end
+
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
