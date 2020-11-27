@@ -10,24 +10,29 @@ class MainCategories extends Component {
     }
 
     render() {
-        return(
-            <div >
-               <table className="MainCategories">
-                   <tbody>
-                        <tr>
-                            <td>Category 1</td>
-                            <td>Category 2</td>
-                            <td>Category 3</td>
-                        </tr>
-                        <tr>
-                            <td>Category 4</td>
-                            <td>Category 5</td>
-                            <td>Category 6</td>
-                     </tr>
-                    </tbody>
-               </table>
-            </div>
-        )
+        if (this.props.video.mainCategories==="") {
+            return (
+                <div>LOADING...</div>
+            )
+        } else {
+            const rowSize=this.props.video.mainCategories.length/2
+            const row1 = this.props.video.mainCategories.slice(0,rowSize)
+            const row2 = this.props.video.mainCategories.slice(rowSize,this.props.video.mainCategories.length)
+            return(
+                <div >
+                   <table className="MainCategories">
+                       <tbody>
+                            <tr>
+                                {row1.map((cat) => (<td>{cat.name}</td>))}
+                            </tr>
+                            <tr>
+                                {row2.map((cat) => (<td>{cat.name}</td>))}
+                         </tr>
+                        </tbody>
+                   </table>
+                </div>
+            )   
+        }
     }
 }
 
