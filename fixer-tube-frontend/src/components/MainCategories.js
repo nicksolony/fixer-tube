@@ -1,13 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux";
-import {loadMainCategories} from "../redux/actions/videoActions"
+
 
 
 class MainCategories extends Component {
-    
-    componentDidMount() {
-        this.props.loadMainCategoriesFromDb()
-    }
 
     render() {
         if (this.props.video.mainCategories==="") {
@@ -38,10 +34,5 @@ class MainCategories extends Component {
 
 const mapStateToProps = (store) => store;
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        loadMainCategoriesFromDb: () => dispatch(loadMainCategories())
-    }
-}
 
-export default connect (mapStateToProps,mapDispatchToProps)(MainCategories);
+export default connect (mapStateToProps)(MainCategories);
