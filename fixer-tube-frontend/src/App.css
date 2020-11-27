@@ -3,8 +3,13 @@
 }
 
 .MainCategories {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 50px;
+  float: left;
+}
+
+.SlideShow {
+  margin-right: 50px;
+  float: right;
 }
 .mainCategory:hover {
     background-color: grey;
