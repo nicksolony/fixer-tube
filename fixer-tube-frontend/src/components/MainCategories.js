@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import { connect } from "react-redux";
+import MainCategory from "./MainCategory"
 
 
 
@@ -19,10 +20,10 @@ class MainCategories extends Component {
                    <table className="MainCategories">
                        <tbody>
                             <tr>
-                                {row1.map((cat) => (<td>{cat.name}</td>))}
+                                {row1.map((cat) => <td className='mainCategory'><MainCategory category={cat}/></td>)}
                             </tr>
                             <tr>
-                                {row2.map((cat) => (<td>{cat.name}</td>))}
+                                {row2.map((cat) => <td className='mainCategory'><MainCategory category={cat}/></td>)}
                          </tr>
                         </tbody>
                    </table>

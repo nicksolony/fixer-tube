@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Navbar extends Component {
     render() {
         return(
             <div>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/videos/new">Add New Video</NavLink>
+                <Link to="/">Home</Link>
+                <Link to="/videos/new">Add New Video</Link>
             </div>
         )
     }
