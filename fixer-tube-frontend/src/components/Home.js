@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import MainCategories from './MainCategories';
 
 
-class Home   extends Component {
+class Home extends Component {
     render() {
         return(
             <div>

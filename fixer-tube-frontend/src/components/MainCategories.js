@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import { connect } from "react-redux";
 
 
-class MainCategories   extends Component {
+class MainCategories extends Component {
     render() {
         return(
-            <div>
-               <table>
+            <div >
+               <table className="MainCategories">
                    <tbody>
                         <tr>
                             <td>Category 1</td>
