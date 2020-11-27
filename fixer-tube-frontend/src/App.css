@@ -6,7 +6,13 @@
   margin-left: auto;
   margin-right: auto;
 }
+.mainCategory:hover {
+    background-color: grey;
+}
 
+.mainCategory:active {
+  background-color: red;
+}
 
 .App-link {
   color: #61dafb;
