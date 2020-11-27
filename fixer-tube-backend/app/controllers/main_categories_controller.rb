@@ -4,15 +4,15 @@ class MainCategoriesController < ApplicationController
         # render json: categories, include: :categories
         render json: main_categories, :include => {
             :categories => {
-                :only => [:id, :name, :main_category_id], :include=> {
-                    :videos => {
-                        :except => [:created_at,:updated_at], :include=>{
-                            :brand => {
-                                :except => [:created_at,:updated_at]
-                            }
-                        }
-                        }
-                    }
+                # :only => [:id, :name, :main_category_id], :include=> {
+                #     :videos => {
+                #         :except => [:created_at,:updated_at], :include=>{
+                #             :brand => {
+                #                 :except => [:created_at,:updated_at]
+                #             }
+                #         }
+                #         }
+                #     }
                 }
             }
         # , :except => [:created_at, :updated_at]
