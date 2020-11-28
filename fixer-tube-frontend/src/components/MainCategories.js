@@ -7,14 +7,14 @@ import MainCategoryBtn from "./MainCategoryBtn"
 class MainCategories extends Component {
 
     render() {
-        if (this.props.video.mainCategories==="") {
+        if (this.props.mainCategories==="") {
             return (
                 <div>LOADING...</div>
             )
         } else {
-            const rowSize=this.props.video.mainCategories.length/2
-            const row1 = this.props.video.mainCategories.slice(0,rowSize)
-            const row2 = this.props.video.mainCategories.slice(rowSize,this.props.video.mainCategories.length)
+            const rowSize=this.props.mainCategories.length/2
+            const row1 = this.props.mainCategories.slice(0,rowSize)
+            const row2 = this.props.mainCategories.slice(rowSize,this.props.mainCategories.length)
             return(
                 <div >
                    <table className="MainCategories">
@@ -33,7 +33,7 @@ class MainCategories extends Component {
     }
 }
 
-const mapStateToProps = (store) => store;
+const mapStateToProps = (store) => store.main;
 
 
 export default connect (mapStateToProps)(MainCategories);

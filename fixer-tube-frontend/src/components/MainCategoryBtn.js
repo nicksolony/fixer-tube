@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 
 
-const MainCategory = (props) => {
+const MainCategoryBtn = (props) => {
     return (
        
             <Link to={`/main_categories/${props.category.id}`}>
@@ -14,5 +14,5 @@ const MainCategory = (props) => {
     )
 }
 
-export default MainCategory;
+export default MainCategoryBtn;
 

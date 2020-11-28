@@ -3,7 +3,7 @@ import videoReducer from './reducers/videoReducer';
 import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
-  video: videoReducer,
+  main: videoReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
