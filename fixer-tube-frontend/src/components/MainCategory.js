@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
 import MainCategories from "./MainCategories"
 import {loadData} from "../redux/actions/videoActions"
+import * as R from 'ramda';
 
 
 
@@ -16,7 +17,9 @@ const MainCategory = (props) => {
     } else {
         const mainCategory = props.mainCategories.find((cat)=>cat.id===parseInt(props.match.params.id,0));
         const categories = mainCategory.categories;
-        const brands = mainCategory.brands;
+        const brands = R.uniqWith(R.eqProps,mainCategory.brands);
+
+
         return (
             <div>
                 <h1>this is a site that you can find fixes on</h1>
