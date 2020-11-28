@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import {loadMainCategories} from "./redux/actions/videoActions"
 import './App.css';
 import MainCategory from './components/MainCategory';
+import Brand from './components/Brand';
 
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/videos/new" component={NewVideo} />
           <Route path="/main_categories/:id" component={MainCategory} />
+          <Route path="/brands/:id" component={Brand} />
 
 
 

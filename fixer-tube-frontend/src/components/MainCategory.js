@@ -6,7 +6,7 @@ import {loadMainCategories} from "../redux/actions/videoActions"
 
 
 
-const MainCategory = (props) => {
+const Brand = (props) => {
     
     if (props.mainCategories==="") {
         props.loadMainCategoriesFromDb()
@@ -38,5 +38,5 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 
-export default connect (mapStateToProps,mapDispatchToProps)(MainCategory);
+export default connect (mapStateToProps,mapDispatchToProps)(Brand);
 

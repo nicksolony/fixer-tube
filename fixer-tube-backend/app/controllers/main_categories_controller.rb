@@ -3,18 +3,13 @@ class MainCategoriesController < ApplicationController
         main_categories = MainCategory.all
         # render json: categories, include: :categories
         render json: main_categories, :include => {
-            :categories => {
-                # :only => [:id, :name, :main_category_id], :include=> {
-                #     :videos => {
-                #         :except => [:created_at,:updated_at], :include=>{
-                #             :brand => {
-                #                 :except => [:created_at,:updated_at]
-                #             }
-                #         }
-                #         }
-                #     }
-                }
+            :categories => { :except => [:created_at,:updated_at]},
+            :brands => {:except => [:created_at,:updated_at]},
+            :videos => {:except => [:created_at,:updated_at]}
             }
         # , :except => [:created_at, :updated_at]
     end
 end
+
+
+# (:include => {:questions => {:include => :subject}, :bonuses => {:include => :subject}})
