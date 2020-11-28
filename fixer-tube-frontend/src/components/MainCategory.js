@@ -21,25 +21,22 @@ const MainCategory = (props) => {
             <div>
                 <h1>this is a site that you can find fixes on</h1>
                 <MainCategories />
-                <div class="mainCategoryListing">
+                <div className="mainCategoryListing">
                     <h1>{mainCategory.name}</h1>
                     <table align="center" margin-right="200px">
                         <thead>
-                            <th width="50%"><h2>Categories</h2></th>
-                            <th width="50%"><h2>Brands</h2></th>
+                            <td width="50%"><h2>Categories</h2></td>
+                            <td width="50%"><h2>Brands</h2></td>
                         </thead>
                         <tr>
                             <td align="left">{categories.map(cat=>
-                                <Link to={`/categories/${cat.id}`}><h3>{cat.name}</h3></Link>
+                                <Link to={`/categories/${mainCategory.id}/${cat.id}`}><h3>{cat.name}</h3></Link>
                                 )}
                             </td>
                             <td aligh="right">{brands.map(brand=>
                                 <Link to={`/brands/${mainCategory.id}/${brand.id}`}><h3>{brand.name}</h3></Link>
                                 )}
                             </td>
-                        </tr>
-                        <tr>
-
                         </tr>
                     </table>
                 </div>
