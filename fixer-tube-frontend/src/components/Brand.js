@@ -15,13 +15,10 @@ const Brand = (props) => {
         )
     } else {
         const mainCategory = props.mainCategories.find((cat)=>cat.slug===props.match.params.main_category_slug);
-        const brands = mainCategory.brands;
-        const brand = brands.find((brand)=>brand.slug===props.match.params.slug);
-        const videos = mainCategory.videos.filter(video=>video.brand_id===brand.id).sort(comprare)
+        // const brands = mainCategory.brands;
+        const brand = props.brands.find((brand)=>brand.slug===props.match.params.slug);
+        const videos = props.videos.filter(video=>video.brand_id===brand.id).sort(comprare)
         const categories = props.categories;
-        // const categories = mainCategory.categories;
-        // const allCategories = props.categories
-        // const videosWithCategory = videos.map((video)=>video={...video, categoryName:categories.find(cat=>cat.slug===video.category_id).name}).sort(comprare)
 
         function comprare(a, b) {
             const videoA = a.name.toUpperCase();
@@ -35,12 +32,14 @@ const Brand = (props) => {
             }
             return comparison;
           }
+          console.log(!!mainCategory);
         return (
             <div>
                 <h1>this is a site that you can find fixes on</h1>
                 <MainCategories />
                 <div className="mainCategoryListing">
-                    <h1>{mainCategory.name} - {brand.name}</h1>
+                   { !!mainCategory ? <h1>{mainCategory.name} - {brand.name}</h1>: <h1>{brand.name}</h1>}
+                    
                     <h2>Videos</h2>
                     <ul>
                         {videos.map(video=>

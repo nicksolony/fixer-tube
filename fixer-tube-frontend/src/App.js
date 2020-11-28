@@ -29,6 +29,7 @@ class App extends Component {
           <Route path="/main_categories/:slug" component={MainCategory} />
           <Route path="/categories/:slug" component={Category} />
           <Route path="/brands/:main_category_slug/:slug" component={Brand} />
+          <Route path="/brands/:slug" component={Brand} />
           <Route path="/videos/:slug" component={Video} />
 
 
