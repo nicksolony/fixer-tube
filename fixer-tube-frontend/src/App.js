@@ -23,11 +23,6 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/videos/new" component={NewVideo} />
-          {/* <Route path="/main_categories/:id" render={
-            debugger
-            (props)=><MainCategory categories={props.mainCategories.find((cat)=>cat.id===parseInt(props.mainCategoryId,0))} />
-            }/> */}
-          
           <Route path="/main_categories/:id" component={MainCategory} />
 
 
