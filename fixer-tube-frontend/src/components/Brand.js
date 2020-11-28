@@ -14,14 +14,18 @@ const Brand = (props) => {
             <div>LOADING...</div>
         )
     } else {
-        const mainCategory = props.mainCategories.find((cat)=>cat.id===parseInt(props.match.params.id,0));
+        const mainCategory = props.mainCategories.find((cat)=>cat.id===parseInt(props.match.params.main_category_id,0));
         const brands = mainCategory.brands;
+        const brand = brands.find((brand)=>brand.id===parseInt(props.match.params.id,0));
+        console.log(props);
+        
+        
         return (
             <div>
                 <MainCategories />
                 <h1>{mainCategory.name}</h1>
-                
-                    {brands.map(brand=><h3>{brand.name}</h3>)}
+                <h2>{brand.name}</h2>
+                    {/* {brands.map(brand=><h3>{brand.name}</h3>)} */}
                 
             </div>
         )
