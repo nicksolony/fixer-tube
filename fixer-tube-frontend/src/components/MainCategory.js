@@ -16,7 +16,7 @@ const MainCategory = (props) => {
             <div>LOADING...</div>
         )
     } else {
-        const mainCategory = props.mainCategories.find((cat)=>cat.id===parseInt(props.match.params.id,0));
+        const mainCategory = props.mainCategories.find((cat)=>cat.slug===props.match.params.slug);
         const categories = mainCategory.categories;
         const brands = R.uniqWith(R.eqProps,mainCategory.brands);
 
@@ -39,7 +39,7 @@ const MainCategory = (props) => {
                                 )}
                             </td>
                             <td aligh="right">{brands.map(brand=>
-                                <ListItem item={brand} mainCat={mainCategory.id} url={`/brands/${mainCategory.id}`}key={`brand${brand.id}`}/>
+                                <ListItem item={brand} mainCat={mainCategory} url={`/brands/${mainCategory.slug}`}key={`brand${brand.id}`}/>
                                 )}
                             </td>
                         </tr>

@@ -26,10 +26,10 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/videos/new" component={NewVideo} />
-          <Route path="/main_categories/:id" component={MainCategory} />
-          <Route path="/categories/:id" component={Category} />
-          <Route path="/brands/:main_category_id/:id" component={Brand} />
-          <Route path="/videos/:id" component={Video} />
+          <Route path="/main_categories/:slug" component={MainCategory} />
+          <Route path="/categories/:slug" component={Category} />
+          <Route path="/brands/:main_category_slug/:slug" component={Brand} />
+          <Route path="/videos/:slug" component={Video} />
 
 
 
