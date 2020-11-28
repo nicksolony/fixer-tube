@@ -11,6 +11,11 @@
   margin-right: 50px;
   float: right;
 }
+
+.mainCategoryListing {
+  margin-left: 50px;
+  float: left;
+}
 .mainCategory:hover {
     background-color: grey;
 }
