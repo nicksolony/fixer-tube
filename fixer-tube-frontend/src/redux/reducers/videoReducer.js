@@ -1,5 +1,4 @@
 export default function videoReducer (state = {mainCategories:"",brands:[],categories:[],videos:[]},action) {
-// export default function videoReducer (state = {mainCategories:null,categories:[],brands:[],videos:[]},action) {
     switch (action.type) {
         case 'LOAD_DATA':
             const vidArr=action.payload.map(mc=>mc.videos)
