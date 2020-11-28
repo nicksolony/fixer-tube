@@ -5,7 +5,7 @@ import Home from './components/Home';
 import NewVideo from './components/NewVideo'
 import { connect } from 'react-redux';
 // import { Redirect } from 'react-router-dom';
-import {loadMainCategories} from "./redux/actions/videoActions"
+import {loadData} from "./redux/actions/videoActions"
 import './App.css';
 import MainCategory from './components/MainCategory';
 import Category from './components/Category';
@@ -14,7 +14,7 @@ import Brand from './components/Brand';
 
 class App extends Component {
   componentDidMount() {
-    this.props.loadMainCategoriesFromDb()
+    this.props.loadDataFromDb()
   }
 
   render() {
@@ -40,7 +40,7 @@ class App extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      loadMainCategoriesFromDb: () => dispatch(loadMainCategories())
+      loadDataFromDb: () => dispatch(loadData())
   }
 }
 

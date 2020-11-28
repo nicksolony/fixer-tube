@@ -2,14 +2,14 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
 import MainCategories from "./MainCategories"
-import {loadMainCategories} from "../redux/actions/videoActions"
+import {loadData} from "../redux/actions/videoActions"
 
 
 
 const Category = (props) => {
     
     if (props.mainCategories==="") {
-        props.loadMainCategoriesFromDb()
+        props.loadDataFromDb()
         return (
             <div>LOADING...</div>
         )
@@ -40,7 +40,7 @@ const mapStateToProps = (store) => store.main;
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadMainCategoriesFromDb: () => dispatch(loadMainCategories())
+        loadDataFromDb: () => dispatch(loadData())
     }
   }
 
