@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import MainCategories from "./MainCategories"
 import {loadData} from "../redux/actions/videoActions"
 import * as R from 'ramda';
+import ListItem from './ListItem';
 
 
 
@@ -27,20 +28,22 @@ const MainCategory = (props) => {
                 <div className="mainCategoryListing">
                     <h1>{mainCategory.name}</h1>
                     <table align="center" margin-right="200px">
-                        <thead>
+                        <tbody>
+                        <tr>
                             <td width="50%"><h2>Categories</h2></td>
                             <td width="50%"><h2>Brands</h2></td>
-                        </thead>
+                        </tr>
                         <tr>
-                            <td align="left">{categories.map(cat=>
-                                <Link to={`/categories/${mainCategory.id}/${cat.id}`}><h3>{cat.name}</h3></Link>
+                            <td aligh="right">{categories.map(cat=>
+                                <ListItem item={cat} mainCat={mainCategory.id} url={'/categories/'} key={`category${cat.id}`}/>
                                 )}
                             </td>
                             <td aligh="right">{brands.map(brand=>
-                                <Link to={`/brands/${mainCategory.id}/${brand.id}`}><h3>{brand.name}</h3></Link>
+                                <ListItem item={brand} mainCat={mainCategory.id} url={'/brands/'}key={`brand${brand.id}`}/>
                                 )}
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
                 

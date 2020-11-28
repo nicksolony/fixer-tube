@@ -23,7 +23,7 @@ class MainCategories extends Component {
                                 {row1.map((cat) => <td className='mainCategory'><MainCategoryBtn category={cat} key={cat.id}/></td>)}
                             </tr>
                             <tr>
-                                {row2.map((cat) => <td className='mainCategory'><MainCategoryBtn category={cat}/></td>)}
+                                {row2.map((cat) => <td className='mainCategory'><MainCategoryBtn category={cat} key={cat.id}/></td>)}
                          </tr>
                         </tbody>
                    </table>
