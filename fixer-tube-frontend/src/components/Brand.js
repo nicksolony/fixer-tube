@@ -19,7 +19,21 @@ const Brand = (props) => {
         const brand = brands.find((brand)=>brand.id===parseInt(props.match.params.id,0));
         const videos = mainCategory.videos.filter(video=>video.brand_id===brand.id)
         const categories = mainCategory.categories;
-        const videosWithCategory = videos.map((video)=>video={...video, category:categories.find(cat=>cat.id===video.category_id).name})
+        const videosWithCategory = videos.map((video)=>video={...video, category:categories.find(cat=>cat.id===video.category_id).name}).sort(comprare)
+        console.log(videosWithCategory);
+
+        function comprare(a, b) {
+            const videoA = a.name.toUpperCase();
+            const videoB = b.name.toUpperCase();
+          
+            let comparison = 0;
+            if (videoA > videoB) {
+              comparison = 1;
+            } else if (videoA < videoB) {
+              comparison = -1;
+            }
+            return comparison;
+          }
         
         
         return (
