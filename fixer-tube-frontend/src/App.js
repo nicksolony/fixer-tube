@@ -10,6 +10,7 @@ import './App.css';
 import MainCategory from './components/MainCategory';
 import Category from './components/Category';
 import Brand from './components/Brand';
+import Video from './components/Video';
 
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
           <Route path="/main_categories/:id" component={MainCategory} />
           <Route path="/categories/:main_category_id/:id" component={Category} />
           <Route path="/brands/:main_category_id/:id" component={Brand} />
+          <Route path="/videos/:id" component={Video} />
 
 
 

@@ -20,7 +20,6 @@ const Brand = (props) => {
         const videos = mainCategory.videos.filter(video=>video.brand_id===brand.id)
         const categories = mainCategory.categories;
         const videosWithCategory = videos.map((video)=>video={...video, category:categories.find(cat=>cat.id===video.category_id).name}).sort(comprare)
-        console.log(videosWithCategory);
 
         function comprare(a, b) {
             const videoA = a.name.toUpperCase();
@@ -44,7 +43,15 @@ const Brand = (props) => {
                     <h1>{mainCategory.name} - {brand.name}</h1>
                     <h2>Videos</h2>
                     <ul>
-                        {videosWithCategory.map(video=><li>{video.category} - {video.name}</li>)}
+                        {videosWithCategory.map(video=>
+                           <Link to={{
+                                pathname: `/videos/${video.id}`,
+                                state: {video}
+                            }}>
+
+                                <li>{video.category} - {video.name}</li>
+                            </Link>
+                        )}
                     </ul>
                         
                      
