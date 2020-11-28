@@ -17,9 +17,11 @@ const Brand = (props) => {
         const mainCategory = props.mainCategories.find((cat)=>cat.id===parseInt(props.match.params.main_category_id,0));
         const brands = mainCategory.brands;
         const brand = brands.find((brand)=>brand.id===parseInt(props.match.params.id,0));
-        const videos = mainCategory.videos.filter(video=>video.brand_id===brand.id)
-        const categories = mainCategory.categories;
-        const videosWithCategory = videos.map((video)=>video={...video, category:categories.find(cat=>cat.id===video.category_id).name}).sort(comprare)
+        const videos = mainCategory.videos.filter(video=>video.brand_id===brand.id).sort(comprare)
+        const categories = props.categories;
+        // const categories = mainCategory.categories;
+        // const allCategories = props.categories
+        // const videosWithCategory = videos.map((video)=>video={...video, categoryName:categories.find(cat=>cat.id===video.category_id).name}).sort(comprare)
 
         function comprare(a, b) {
             const videoA = a.name.toUpperCase();
@@ -34,7 +36,6 @@ const Brand = (props) => {
             return comparison;
           }
         
-        
         return (
             <div>
                 <h1>this is a site that you can find fixes on</h1>
@@ -43,13 +44,11 @@ const Brand = (props) => {
                     <h1>{mainCategory.name} - {brand.name}</h1>
                     <h2>Videos</h2>
                     <ul>
-                        {videosWithCategory.map(video=>
-                           <Link to={{
-                                pathname: `/videos/${video.id}`,
-                                state: {video}
-                            }}>
+                        {videos.map(video=>
+                          
+                           <Link to={`/videos/${video.id}`}>
 
-                                <li>{video.category} - {video.name}</li>
+                                <li>{categories.find((category)=>category.id===video.category_id).name} - {video.name}</li>
                             </Link>
                         )}
                     </ul>
