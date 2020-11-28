@@ -27,7 +27,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/videos/new" component={NewVideo} />
           <Route path="/main_categories/:id" component={MainCategory} />
-          <Route path="/categories/:main_category_id/:id" component={Category} />
+          <Route path="/categories/:id" component={Category} />
           <Route path="/brands/:main_category_id/:id" component={Brand} />
           <Route path="/videos/:id" component={Video} />
 

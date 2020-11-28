@@ -14,10 +14,11 @@ const Category = (props) => {
             <div>LOADING...</div>
         )
     } else {
-        const mainCategory = props.mainCategories.find((cat)=>cat.id===parseInt(props.match.params.main_category_id,0));
-        const categories = mainCategory.categories;
-        const category = categories.find((category)=>category.id===parseInt(props.match.params.id,0));
-        console.log(props);
+        
+        const category = props.categories.find((category)=>category.id===parseInt(props.match.params.id,0));
+        const mainCategory = props.mainCategories.find((cat)=>cat.id===category.main_category_id);
+        
+        
         
         
         return (

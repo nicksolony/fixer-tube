@@ -35,11 +35,11 @@ const MainCategory = (props) => {
                         </tr>
                         <tr>
                             <td aligh="right">{categories.map(cat=>
-                                <ListItem item={cat} mainCat={mainCategory.id} url={'/categories/'} key={`category${cat.id}`}/>
+                                <ListItem item={cat} mainCat={mainCategory} url={'/categories'} key={`category${cat.id}`}/>
                                 )}
                             </td>
                             <td aligh="right">{brands.map(brand=>
-                                <ListItem item={brand} mainCat={mainCategory.id} url={'/brands/'}key={`brand${brand.id}`}/>
+                                <ListItem item={brand} mainCat={mainCategory.id} url={`/brands/${mainCategory.id}`}key={`brand${brand.id}`}/>
                                 )}
                             </td>
                         </tr>
