@@ -13,11 +13,24 @@ export default function videoReducer (state = {mainCategories:"",brands:[],categ
             const allBrands = [];
             brandArr.map(brand=>brand.map(brandItem=>allBrands.push(brandItem)))
 
+            function comprare(a, b) {
+                const videoA = a.name.toUpperCase();
+                const videoB = b.name.toUpperCase();
+              
+                let comparison = 0;
+                if (videoA > videoB) {
+                  comparison = 1;
+                } else if (videoA < videoB) {
+                  comparison = -1;
+                }
+                return comparison;
+              }
+
             return {...state,
                 mainCategories: action.payload,
-                categories: allCategories,
-                brands: allBrands,
-                videos: allVideos}
+                categories: allCategories.sort((a, b) => a.name.localeCompare(b.name)),
+                brands: allBrands.sort((a, b) => a.name.localeCompare(b.name)),
+                videos: allVideos.sort((a, b) => a.name.localeCompare(b.name))}
         default:
             return state;
     }
