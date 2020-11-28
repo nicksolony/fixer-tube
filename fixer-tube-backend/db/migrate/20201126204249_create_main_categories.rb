@@ -3,6 +3,7 @@ class CreateMainCategories < ActiveRecord::Migration[6.0]
     create_table :main_categories do |t|
       t.string :name
       t.string :icon_src
+      t.string :slug
 
       t.timestamps
     end
