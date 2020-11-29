@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import MainCategories from "./MainCategories"
 import { connect } from "react-redux";
 import Select from 'react-select';
+import { addVideo } from "../redux/actions/videoActions";
 
 class NewVideo extends Component {
 
@@ -14,30 +15,45 @@ class NewVideo extends Component {
     }
 
     handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value}, () => console.log(this.state))
+        this.setState({[e.target.name]: e.target.value})
     }
 
-    handleBrandSelection = brand =>{
-        console.log(brand);
+    handleBrandSelection = (brand) =>{
         this.setState(
             {brandId: brand.value}
         )
     }
 
-    handleCategorySelection = category =>{
-        console.log(category);
+    handleCategorySelection = (category) =>{
         this.setState(
             {categoryId: category.value}
         )
     }
 
-    
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const newVideo = {
+            "name": this.state.name,
+            "description": this.state.description,
+            "url":this.state.url.split("https://www.youtube.com/watch?v=")[1],
+            "brandId":this.state.brandId,
+            "categoryId":this.state.categoryId
+        }
+        debugger
+        this.props.addVideo(newVideo,this.props.history)
+        
+        this.setState({
+            name:'',
+            description:'',
+            url:'',
+            brandId:null,
+            categoryId:null
+        })
+    }
     
 
 
     render(props) {
-        // const selectedBrand = this.state.brandId
-        // const brands = this.props.brands;
         const brands = this.props.brands.map(brand=>({ value: brand.id, label: brand.name }));
         const categories = this.props.categories.map(category=>({ value: category.id, label: category.name }));
         return(
@@ -46,7 +62,7 @@ class NewVideo extends Component {
                 <MainCategories />
                 <div className="mainCategoryListing"> 
                     <h2>Add new video here:</h2>
-                    <form onChange={this.handleChange}>
+                    <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
                         <table>
                             <tbody>
                             <tr>
@@ -87,5 +103,10 @@ class NewVideo extends Component {
     }
 }
 const mapStateToProps = (store) => store.main;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addVideo: (newVideo,history) => dispatch(addVideo(newVideo,history))
+    }
+  }
 
-export default connect(mapStateToProps)(NewVideo);
+export default connect(mapStateToProps,mapDispatchToProps)(NewVideo);

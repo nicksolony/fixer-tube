@@ -10,6 +10,7 @@ export const loadData = () => {
 };
 
 export const addVideo = (newVideo,history) => {
+    
     return (dispatch) => {
         fetch('http://localhost:3001/videos',{
             method: 'post',
@@ -21,6 +22,7 @@ export const addVideo = (newVideo,history) => {
         })
         .then(resp => resp.json())
         .then(newVideoObj => {
+            console.log(newVideoObj);
             dispatch({type: ADD_VIDEO, payload: newVideoObj})
             history.push(`videos/${newVideoObj.slug}`)
         })
