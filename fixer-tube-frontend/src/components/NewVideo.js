@@ -10,7 +10,6 @@ class NewVideo extends Component {
         description:'',
         url:'',
         brandId:null,
-        brandValue:'',
         categoryId:null
     }
 
@@ -21,8 +20,14 @@ class NewVideo extends Component {
     handleBrandSelection = brand =>{
         console.log(brand);
         this.setState(
-            {brandId: brand.value},
-            ()=>console.log(this.state.brandId)
+            {brandId: brand.value}
+        )
+    }
+
+    handleCategorySelection = category =>{
+        console.log(category);
+        this.setState(
+            {categoryId: category.value}
         )
     }
 
@@ -34,6 +39,7 @@ class NewVideo extends Component {
         // const selectedBrand = this.state.brandId
         // const brands = this.props.brands;
         const brands = this.props.brands.map(brand=>({ value: brand.id, label: brand.name }));
+        const categories = this.props.categories.map(category=>({ value: category.id, label: category.name }));
         return(
             <div>
                 <h1>this is a site that you can find fixes on</h1>
@@ -58,6 +64,18 @@ class NewVideo extends Component {
                                     onChange={this.handleBrandSelection}
                                     options={brands}
                                 /></td>
+                            </tr>
+                            <tr>
+                                <td><label>Category: </label></td>
+                                <td><Select 
+                                    value={this.state.value}
+                                    onChange={this.handleCategorySelection}
+                                    options={categories}
+                                /></td>
+                            </tr>
+                            <tr>
+                                <td><label>YouTube URL: </label></td>
+                                <td><input type="text" name="url" value= {this.state.url}  placeholder="Paste YouTube link here - https://www.youtube.com/watch?v=HYVJcq7Ika8"/></td>
                             </tr>
                             <tr><td><input type="submit"/></td></tr>
                             </tbody>
