@@ -15,8 +15,7 @@ const Category = (props) => {
         )
     } else {
         const category = props.categories.find((category)=>category.slug===props.match.params.slug); 
-        const mainCategory = props.mainCategories.find((mainCat)=>mainCat.id===category.main_category_id);
-        const videos = mainCategory.videos.filter(video=>video.category_id===category.id).sort(comprare)
+        const videos = props.videos.filter(video=>video.category_id===category.id).sort(comprare)
         const brands = props.brands;
 
         function comprare(a, b) {
