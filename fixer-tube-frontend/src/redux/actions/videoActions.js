@@ -24,7 +24,7 @@ export const addVideo = (newVideo,history) => {
         .then(newVideoObj => {
             console.log(newVideoObj);
             dispatch({type: ADD_VIDEO, payload: newVideoObj})
-            history.push(`videos/${newVideoObj.slug}`)
+            history.push(`${newVideoObj.slug}`)
         })
     }
 };

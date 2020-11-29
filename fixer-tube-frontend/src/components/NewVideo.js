@@ -36,8 +36,8 @@ class NewVideo extends Component {
             "name": this.state.name,
             "description": this.state.description,
             "url":this.state.url.split("https://www.youtube.com/watch?v=")[1],
-            "brandId":this.state.brandId,
-            "categoryId":this.state.categoryId
+            "brand_id":this.state.brandId,
+            "category_id":this.state.categoryId
         }
         debugger
         this.props.addVideo(newVideo,this.props.history)
