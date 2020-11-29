@@ -15,14 +15,19 @@ export default function videoReducer (state = {mainCategories:"",brands:[],categ
             const allBrands=dupBrands.filter((obj, pos, arr) => {
               return arr.map(mapObj => mapObj['id']).indexOf(obj['id']) === pos;
           });
-  
-
             return {...state,
                 mainCategories: action.payload,
                 categories: allCategories.sort((a, b) => a.name.localeCompare(b.name)),
                 brands: allBrands.sort((a, b) => a.name.localeCompare(b.name)),
                 videos: allVideos.sort((a, b) => a.name.localeCompare(b.name))
               }
+        case 'ADD_VIDEO':
+            state.videos.push(action.payload)
+            const newArr = state.videos
+            return {...state,
+                videos: newArr,
+                newVideo: action.payload
+            }
         default:
             return state;
     }
