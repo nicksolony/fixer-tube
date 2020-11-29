@@ -9,27 +9,13 @@ export default function videoReducer (state = {mainCategories:"",brands:[],categ
             const allCategories = [];
             catArr.map(cat=>cat.map(categoryItem=>allCategories.push(categoryItem)))
 
-            const brandArr=action.payload.map(mc=>mc.brands)
-            console.log(brandArr);
+            const brandArr=action.payload.map(mc=>mc.brands);
             const dupBrands = [];
             brandArr.map(brand=>brand.map(brandItem=>dupBrands.push(brandItem)))
             const allBrands=dupBrands.filter((obj, pos, arr) => {
               return arr.map(mapObj => mapObj['id']).indexOf(obj['id']) === pos;
           });
   
-
-            function comprare(a, b) {
-                const videoA = a.name.toUpperCase();
-                const videoB = b.name.toUpperCase();
-              
-                let comparison = 0;
-                if (videoA > videoB) {
-                  comparison = 1;
-                } else if (videoA < videoB) {
-                  comparison = -1;
-                }
-                return comparison;
-              }
 
             return {...state,
                 mainCategories: action.payload,

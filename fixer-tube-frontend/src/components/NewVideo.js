@@ -10,6 +10,7 @@ class NewVideo extends Component {
         description:'',
         url:'',
         brandId:null,
+        brandValue:'',
         categoryId:null
     }
 
@@ -17,9 +18,10 @@ class NewVideo extends Component {
         this.setState({[e.target.name]: e.target.value}, () => console.log(this.state))
     }
 
-    handleBrandSelection = brandId =>{
+    handleBrandSelection = brand =>{
+        console.log(brand);
         this.setState(
-            {brandId},
+            {brandId: brand.value},
             ()=>console.log(this.state.brandId)
         )
     }
@@ -31,7 +33,6 @@ class NewVideo extends Component {
     render(props) {
         // const selectedBrand = this.state.brandId
         // const brands = this.props.brands;
-        console.log(this.props.brands)
         const brands = this.props.brands.map(brand=>({ value: brand.id, label: brand.name }));
         return(
             <div>
@@ -53,7 +54,7 @@ class NewVideo extends Component {
                             <tr>
                                 <td><label>Brand: </label></td>
                                 <td><Select 
-                                    value={this.state.brandId}
+                                    value={this.state.value}
                                     onChange={this.handleBrandSelection}
                                     options={brands}
                                 /></td>
