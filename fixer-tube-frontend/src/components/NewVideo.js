@@ -35,7 +35,7 @@ class NewVideo extends Component {
         const newVideo = {
             "name": this.state.name,
             "description": this.state.description,
-            "url":this.state.url.split("https://www.youtube.com/watch?v=")[1],
+            "url":this.state.url,
             "brand_id":this.state.brandId,
             "category_id":this.state.categoryId
         }
