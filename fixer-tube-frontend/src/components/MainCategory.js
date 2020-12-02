@@ -16,10 +16,20 @@ const MainCategory = (props) => {
     } else {
         const mainCategory = props.mainCategories.find((cat)=>cat.slug===props.match.params.slug);
         const categories = mainCategory.categories;
-        const brands = mainCategory.brands.filter((obj, pos, arr) => {
-            return arr.map(mapObj => mapObj['id']).indexOf(obj['id']) === pos;
-        });
- 
+        // const brands = mainCategory.brands.filter((obj, pos, arr) => {
+        //     return arr.map(mapObj => mapObj['id']).indexOf(obj['id']) === pos;
+        // });
+
+        const videos = []
+        categories.map(category=> videos.push(props.videos.filter(video=>video.category_id ===category.id)))
+        const brandIds = videos.flat(2).map(vid=>{return vid.brand_id})
+
+           
+        const brands = props.brands.filter(brand=>brandIds.includes(brand.id))
+
+        
+        console.log(brandIds);
+        console.log(brands);
 
         return (
             <div>
