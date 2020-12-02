@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import NewVideo from './components/NewVideo'
 import { connect } from 'react-redux';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import {loadData} from "./redux/actions/videoActions"
 import './App.css';
 import MainCategory from './components/MainCategory';
@@ -27,13 +27,17 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/videos/new" component={NewVideo} />
           <Route path="/main_categories/:slug" component={MainCategory} />
-          <Route path="/main_categories" component={Home} />
+          
           <Route path="/categories/:slug" component={Category} />
+          
           <Route path="/brands/:main_category_slug/:slug" component={Brand} />
           <Route path="/brands/:slug" component={Brand} />
+          
           <Route path="/videos/:slug" component={Video} />
-
-
+          <Redirect from="/videos/" to="/" />
+          <Redirect from="/brands" to="/" />
+          <Redirect from="/categories" to="/" />
+          <Redirect from="/main_categories" to="/" />
 
         </Switch>
       </Router>
