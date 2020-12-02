@@ -5,9 +5,12 @@ import { connect } from "react-redux";
 class Navbar extends Component {
     render() {
         return(
-            <div>
+            <div className='NavBar'>
+                <p>
                 <Link to="/">Home</Link>
-                <Link to="/videos/new">Add New Video</Link>
+                <span> | </span>         
+                <Link to="/videos/new">Add Video</Link>
+                </p>
             </div>
         )
     }

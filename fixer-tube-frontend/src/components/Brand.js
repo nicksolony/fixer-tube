@@ -1,8 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
-import MainCategories from "./MainCategories"
+// import MainCategories from "./MainCategories"
 import {loadData} from "../redux/actions/videoActions"
+import Header from './Header';
 
 
 
@@ -35,8 +36,7 @@ const Brand = (props) => {
           console.log(!!mainCategory);
         return (
             <div>
-                <h1>this is a site that you can find fixes on</h1>
-                <MainCategories />
+                <Header />
                 <div className="mainCategoryListing">
                    { !!mainCategory ? <h1>{mainCategory.name} - {brand.name}</h1>: <h1>{brand.name}</h1>}
                     

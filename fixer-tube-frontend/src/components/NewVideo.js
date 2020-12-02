@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import MainCategories from "./MainCategories"
 import { connect } from "react-redux";
 import Select from 'react-select';
 import { addVideo } from "../redux/actions/videoActions";
+import Header from './Header';
 
 class NewVideo extends Component {
 
@@ -58,8 +58,7 @@ class NewVideo extends Component {
         const categories = this.props.categories.map(category=>({ value: category.id, label: category.name }));
         return(
             <div>
-                <h1>this is a site that you can find fixes on</h1>
-                <MainCategories />
+                <Header/>
                 <div className="mainCategoryListing"> 
                     <h2>Add new video here:</h2>
                     <form onChange={this.handleChange} onSubmit={this.handleSubmit}>

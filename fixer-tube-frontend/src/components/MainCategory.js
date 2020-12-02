@@ -1,9 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
-import MainCategories from "./MainCategories"
 import {loadData} from "../redux/actions/videoActions"
 import ListItem from './ListItem';
+import Header from './Header';
 
 
 
@@ -24,8 +23,7 @@ const MainCategory = (props) => {
 
         return (
             <div>
-                <h1>this is a site that you can find fixes on</h1>
-                <MainCategories />
+               < Header/>
                 <div className="mainCategoryListing">
                     <h1>{mainCategory.name}</h1>
                     <table align="center" margin-right="200px">

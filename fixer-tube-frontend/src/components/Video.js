@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-// import Category from './Category';
-import MainCategories from "./MainCategories"
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 import {loadData} from "../redux/actions/videoActions"
+import Header from './Header';
 
 
 const Video = (props) =>{
@@ -22,8 +21,7 @@ const Video = (props) =>{
         
         return (
             <div>
-                <h1>this is a site that you can find fixes on</ h1>
-                <MainCategories />
+                <Header/>
                 <h2>{name}</h2>
                 <h3><Link to={`/categories/${category.slug}`}>  {category.name}</Link> - <Link to={`/brands/${brand.slug}`}>{brand.name}</Link></h3>
                 <p>{description}</p>

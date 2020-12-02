@@ -1,9 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
-import MainCategories from "./MainCategories"
 import {loadData} from "../redux/actions/videoActions"
-
+import Header from "./Header"
 
 
 const Category = (props) => {
@@ -32,8 +31,9 @@ const Category = (props) => {
           }
         return (
             <div>
-                <h1>this is a site that you can find fixes on</h1>
-                <MainCategories />
+                {/* <h1>this is a site that you can find fixes on</h1>
+                <MainCategories /> */}
+                <Header/>
                 <div className="mainCategoryListing">
                     <h1>{category.name}</h1>
                     <h2>Videos</h2>
