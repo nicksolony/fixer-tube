@@ -48,19 +48,3 @@ See user stories and models below for more details on functionality.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
-
-
-
-TO DO LATER:
-
-Add features:
-* //To make live app, need to create user interface to be able to authenticate users//
-
-Update productivity - add slugify to react (https://www.npmjs.com/package/react-slugify) or rails
-
-
-
-
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/S1MSLShV-qs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-https://www.youtube.com/watch?v=S1MSLShV-qs
