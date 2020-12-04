@@ -11,35 +11,76 @@ class NewVideo extends Component {
         description:'',
         url:'',
         brandId:null,
-        categoryId:null
-    }
+        categoryId:null,
+        errors: {
+            name:"Name can't be blank!",
+            url:"URL can't be blank!",
+            brandId:"Brand can't be blank!",
+            categoryId:"Category can't be blank!",
+        }
+    };
 
-    handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value})
-    }
+    handleChange = (target) => {
+        
+        // this.setState({[e.target.name]: e.target.value});
+
+        const {name, value} = target;
+        let errors = this.state.errors;
+
+        switch (name) {
+            
+            case 'name': 
+              if (value==='') {
+                  errors.name = "Name can't be blank!"
+              } else if (this.props.videos.find(video=>video.name===value)) {
+                errors.name = "Video with this name exist!"
+              } else {
+                errors.name = ''
+              }
+              break;
+            case 'url': 
+              if (value==='') {
+                  errors.url = "URL can't be blank!"
+              } else if (this.props.videos.find(video=>video.url===value)) {
+                errors.url = "Video with this url exist!"
+              } else {
+                errors.url = ''
+              }
+              break;
+            default:
+              break;
+          }
+        
+          this.setState({errors, [name]: value}, ()=> {
+              console.log(errors, this.state)
+              console.log(this.props.videos);
+          })
+        
+        
+    };
 
     handleBrandSelection = (brand) =>{
         this.setState(
             {brandId: brand.value}
         )
-    }
+    };
 
     handleCategorySelection = (category) =>{
-        this.setState(
-            {categoryId: category.value}
-        )
-    }
+        console.log(category)
+        // this.setState(
+        //     {categoryId: category.value}
+        // )
+    };
 
-    handleSubmit = (e) => {
-        e.preventDefault();
+    createNewVideo = (video) => {
         const newVideo = {
-            "name": this.state.name,
-            "description": this.state.description,
-            "url":this.state.url,
-            "brand_id":this.state.brandId,
-            "category_id":this.state.categoryId
+            "name": video.name,
+            "description": video.description,
+            "url":video.url,
+            "brand_id":video.brandId,
+            "category_id":video.categoryId
         }
-        debugger
+        
         this.props.addVideo(newVideo,this.props.history)
         
         this.setState({
@@ -49,19 +90,29 @@ class NewVideo extends Component {
             brandId:null,
             categoryId:null
         })
-    }
+    };
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        
+        if (this.state.name === '' || !!this.props.videos.find(video=>video.name===this.state.name) || this.state.url === '' || !!this.props.videos.find(video=>video.url===this.state.url)) {
+            console.log("Name can't be blank");
+        } else {
+            this.createNewVideo(this.state)
+        }
+    };
     
 
 
     render(props) {
         const brands = this.props.brands.map(brand=>({ value: brand.id, label: brand.name }));
-        const categories = this.props.categories.map(category=>({ value: category.id, label: category.name }));
+        const categories = this.props.categories.map(category=>({ value: category.id, label: category.name, name:'categoryId' }));
         return(
             <div>
                 <Header/>
                 <div className="mainCategoryListing"> 
                     <h2>Add new video here:</h2>
-                    <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+                    <form onChange={this.handleChange(e)} onSubmit={this.handleSubmit}>
                         <table>
                             <tbody>
                             <tr>
@@ -84,7 +135,8 @@ class NewVideo extends Component {
                                 <td><label>Category: </label></td>
                                 <td><Select 
                                     value={this.state.value}
-                                    onChange={this.handleCategorySelection}
+                                    // onChange={this.handleCategorySelection}
+                                    onChange={this.handleChange}
                                     options={categories}
                                 /></td>
                             </tr>
