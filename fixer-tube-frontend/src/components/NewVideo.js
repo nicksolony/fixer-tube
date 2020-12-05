@@ -115,7 +115,7 @@ class NewVideo extends Component {
         if (this.validateForm(this.state.errors)) {
             this.createNewVideo(this.state);
         } else {
-            console.log("doesn't work");
+            alert("Please fill in required fields")
         }
     };
     
@@ -130,7 +130,7 @@ class NewVideo extends Component {
                 <Header/>
                 <div className="mainCategoryListing"> 
                     
-                    <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.handleSubmit}>
                         <table>
                             <tbody>
                                 <tr>
@@ -140,12 +140,12 @@ class NewVideo extends Component {
                                 </tr>
                             <tr>
                                 <td><label>Video Name: </   label></td>
-                                <td align="left"><textarea rows="1" cols="50" name="name" value= {this.state.name}  placeholder="Type name of your video here" className="css-singleValue"/></td>
+                                <td align="left"><textarea rows="1" cols="50" name="name" value= {this.state.name}  placeholder="Type name of your video here" className="css-singleValue" onChange={this.handleChange}/></td>
                                 <td>{errors.name.length > 0 && <span className='error'>{errors.name}</span>}</td>
                             </tr>
                             <tr>
                                 <td><label>Video Description: </label></td>
-                                <td align="left"><textarea rows="4" cols="50"name="description" value= {this.state.description}  placeholder="Type description of your video here"/></td>
+                                <td align="left"><textarea rows="4" cols="50"name="description" value= {this.state.description}  placeholder="Type description of your video here" onChange={this.handleChange}/></td>
                             </tr>
                             <tr>
                                 <td><label>Brand: </label></td>
@@ -167,7 +167,7 @@ class NewVideo extends Component {
                             </tr>
                             <tr>
                                 <td><label>YouTube URL: </label></td>
-                                <td align="left"><input size="47" type="text" name="url" value= {this.state.url}  placeholder="Paste YouTube link here - https://www.youtube.com/watch?v=HYVJcq7Ika8"/></td>
+                                <td align="left"><input size="47" type="text" name="url" value= {this.state.url}  placeholder="Paste YouTube link here - https://www.youtube.com/watch?v=HYVJcq7Ika8" onChange={this.handleChange}/></td>
                                 <td>{errors.url.length > 0 && <span className='error'>{errors.url}</span>}</td>
                             </tr>
                             <tr>

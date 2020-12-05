@@ -27,9 +27,6 @@ const MainCategory = (props) => {
            
         const brands = props.brands.filter(brand=>brandIds.includes(brand.id))
 
-        
-        console.log(brandIds);
-        console.log(brands);
 
         return (
             <div>
