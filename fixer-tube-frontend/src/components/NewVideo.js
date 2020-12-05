@@ -66,13 +66,23 @@ class NewVideo extends Component {
             errors.brandId="Brand can't be blank!"
         } 
         this.setState({errors, brandId: brand.value})
-        console.log(this.state);
+        console.log(errors, this.state)
     };
 
     handleCategorySelection = (category) =>{
         this.setState(
             {categoryId: category.value}
         )
+
+        let errors = this.state.errors;
+        if (!!category.value) {
+            errors.categoryId=""  
+        } else {
+            errors.categoryId="Category can't be blank!"
+        } 
+        this.setState({errors, categoryId: category.value})
+        console.log(errors, this.state)
+
     };
 
     createNewVideo = (video) => {
