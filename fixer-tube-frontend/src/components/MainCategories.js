@@ -12,6 +12,7 @@ class MainCategories extends Component {
                 <div>LOADING...</div>
             )
         } else {
+            debugger
             const rowSize=this.props.mainCategories.length/2
             const row1 = this.props.mainCategories.slice(0,rowSize)
             const row2 = this.props.mainCategories.slice(rowSize,this.props.mainCategories.length)

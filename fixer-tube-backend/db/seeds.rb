@@ -50,6 +50,7 @@ Brands = Brand.create([
     {name:"Marvel"},
     {name:"Home Goods"},
     {name:"Amazon"},
+    {name:"Other"}
 ])
 
 Videos = Video.create([
