@@ -51,9 +51,7 @@ class NewVideo extends Component {
               break;
           }
         
-          this.setState({errors, [name]: value}, ()=> {
-              console.log(errors, this.state)
-          })
+          this.setState({errors, [name]: value})
         
         
     };
@@ -66,7 +64,6 @@ class NewVideo extends Component {
             errors.brandId="Brand can't be blank!"
         } 
         this.setState({errors, brandId: brand.value})
-        console.log(errors, this.state)
     };
 
     handleCategorySelection = (category) =>{
@@ -81,7 +78,6 @@ class NewVideo extends Component {
             errors.categoryId="Category can't be blank!"
         } 
         this.setState({errors, categoryId: category.value})
-        console.log(errors, this.state)
 
     };
 
@@ -105,13 +101,21 @@ class NewVideo extends Component {
         })
     };
 
+    validateForm = (errors) => {
+        let valid = true;
+        Object.values(errors).forEach(value => {
+            value.length > 0 && (valid = false)
+        });
+        return valid;
+    }
+
     handleSubmit = (e) => {
         e.preventDefault();
         
-        if (this.state.name === '' || !!this.props.videos.find(video=>video.name===this.state.name) || this.state.url === '' || !!this.props.videos.find(video=>video.url===this.state.url)) {
-            console.log("Name can't be blank");
+        if (this.validateForm(this.state.errors)) {
+            this.createNewVideo(this.state);
         } else {
-            this.createNewVideo(this.state)
+            console.log("doesn't work");
         }
     };
     
