@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import {loadData} from "../redux/actions/videoActions"
 import ListItem from './ListItem';
 import Header from './Header';
+import BrandItem from './BrandItem';
 
 
 
@@ -43,7 +44,7 @@ const MainCategory = (props) => {
                                 )}
                             </td>
                             <td aligh="right">{brands.map(brand=>
-                                <ListItem item={brand} mainCat={mainCategory} url={`/mainCategory/${mainCategory.slug}`}key={`brand${brand.id}`}/>
+                                <BrandItem item={brand} mainCat={mainCategory} url={`/mainCategory/${mainCategory.slug}`}key={`brand${brand.id}`}/>
                                 )}
                             </td>
                         </tr>
