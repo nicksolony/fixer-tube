@@ -1,6 +1,6 @@
 Still need to build out:
 
-1. Error Handling - https://dev.to/omnisyle/handle-form-and-validation-with-react-1a9p
+1. Error Handling - https://www.telerik.com/blogs/up-and-running-with-react-form-validation - DONE
 2. Search Bar - https://medium.com/@reneecruz/search-bar-in-react-js-in-six-simple-steps-4849118b2134
 3. Edit Video
 4. Delete Video

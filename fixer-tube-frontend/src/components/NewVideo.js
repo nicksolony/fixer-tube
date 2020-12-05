@@ -13,10 +13,10 @@ class NewVideo extends Component {
         brandId:null,
         categoryId:null,
         errors: {
-            name:"Name can't be blank!",
-            url:"URL can't be blank!",
-            brandId:"Brand can't be blank!",
-            categoryId:"Category can't be blank!",
+            name:"* Required",
+            url:"* Required",
+            brandId:"Please select Brand, if can't find specific brand choose other",
+            categoryId:"Please select Category",
         }
     };
 
@@ -111,7 +111,7 @@ class NewVideo extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        
+        console.log(this.state.errors);
         if (this.validateForm(this.state.errors)) {
             this.createNewVideo(this.state);
         } else {
@@ -124,43 +124,56 @@ class NewVideo extends Component {
     render(props) {
         const brands = this.props.brands.map(brand=>({ value: brand.id, label: brand.name }));
         const categories = this.props.categories.map(category=>({ value: category.id, label: category.name }));
+        const {errors} = this.state;
         return(
             <div>
                 <Header/>
                 <div className="mainCategoryListing"> 
-                    <h2>Add new video here:</h2>
+                    
                     <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
                         <table>
                             <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td><h2>Add new video here:</h2></td>
+                                    <td></td>
+                                </tr>
                             <tr>
                                 <td><label>Video Name: </   label></td>
-                                <td><input type="text" name="name" value= {this.state.name}  placeholder="Type name of your video here"/></td>
+                                <td align="left"><textarea rows="1" cols="50" name="name" value= {this.state.name}  placeholder="Type name of your video here" className="css-singleValue"/></td>
+                                <td>{errors.name.length > 0 && <span className='error'>{errors.name}</span>}</td>
                             </tr>
                             <tr>
                                 <td><label>Video Description: </label></td>
-                                <td><textarea name="description" value= {this.state.description}  placeholder="Type description of your video here"/></td>
+                                <td align="left"><textarea rows="4" cols="50"name="description" value= {this.state.description}  placeholder="Type description of your video here"/></td>
                             </tr>
                             <tr>
                                 <td><label>Brand: </label></td>
-                                <td><Select 
+                                <td align="left"><Select 
                                     value={this.state.value}
                                     onChange={this.handleBrandSelection}
                                     options={brands}
                                 /></td>
+                                <td>{errors.brandId.length > 0 && <span className='error'>{errors.brandId}</span>}</td>
                             </tr>
                             <tr>
                                 <td><label>Category: </label></td>
-                                <td><Select 
+                                <td align="left"><Select 
                                     value={this.state.value}
                                     onChange={this.handleCategorySelection}
                                     options={categories}
                                 /></td>
+                                <td>{errors.categoryId.length > 0 && <span className='error'>{errors.categoryId}</span>}</td>
                             </tr>
                             <tr>
                                 <td><label>YouTube URL: </label></td>
-                                <td><input type="text" name="url" value= {this.state.url}  placeholder="Paste YouTube link here - https://www.youtube.com/watch?v=HYVJcq7Ika8"/></td>
+                                <td align="left"><input size="47" type="text" name="url" value= {this.state.url}  placeholder="Paste YouTube link here - https://www.youtube.com/watch?v=HYVJcq7Ika8"/></td>
+                                <td>{errors.url.length > 0 && <span className='error'>{errors.url}</span>}</td>
                             </tr>
-                            <tr><td><input type="submit"/></td></tr>
+                            <tr>
+                                <td></td>
+                                <td><input type="submit"/></td>
+                            </tr>
                             </tbody>
                         </table>   
                     </form>
