@@ -20,11 +20,11 @@ class NewVideo extends Component {
         }
     };
 
-    handleChange = (target) => {
+    handleChange = (e) => {
         
         // this.setState({[e.target.name]: e.target.value});
 
-        const {name, value} = target;
+        const {name, value} = e.target;
         let errors = this.state.errors;
 
         switch (name) {
@@ -53,23 +53,26 @@ class NewVideo extends Component {
         
           this.setState({errors, [name]: value}, ()=> {
               console.log(errors, this.state)
-              console.log(this.props.videos);
           })
         
         
     };
 
-    handleBrandSelection = (brand) =>{
-        this.setState(
-            {brandId: brand.value}
-        )
+    handleBrandSelection = (brand) =>{ 
+        let errors = this.state.errors;
+        if (!!brand.value) {
+            errors.brandId=""  
+        } else {
+            errors.brandId="Brand can't be blank!"
+        } 
+        this.setState({errors, brandId: brand.value})
+        console.log(this.state);
     };
 
     handleCategorySelection = (category) =>{
-        console.log(category)
-        // this.setState(
-        //     {categoryId: category.value}
-        // )
+        this.setState(
+            {categoryId: category.value}
+        )
     };
 
     createNewVideo = (video) => {
@@ -106,13 +109,13 @@ class NewVideo extends Component {
 
     render(props) {
         const brands = this.props.brands.map(brand=>({ value: brand.id, label: brand.name }));
-        const categories = this.props.categories.map(category=>({ value: category.id, label: category.name, name:'categoryId' }));
+        const categories = this.props.categories.map(category=>({ value: category.id, label: category.name }));
         return(
             <div>
                 <Header/>
                 <div className="mainCategoryListing"> 
                     <h2>Add new video here:</h2>
-                    <form onChange={this.handleChange(e)} onSubmit={this.handleSubmit}>
+                    <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
                         <table>
                             <tbody>
                             <tr>
@@ -135,8 +138,7 @@ class NewVideo extends Component {
                                 <td><label>Category: </label></td>
                                 <td><Select 
                                     value={this.state.value}
-                                    // onChange={this.handleCategorySelection}
-                                    onChange={this.handleChange}
+                                    onChange={this.handleCategorySelection}
                                     options={categories}
                                 /></td>
                             </tr>
