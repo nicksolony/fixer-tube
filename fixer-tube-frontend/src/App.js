@@ -30,7 +30,7 @@ class App extends Component {
           
           <Route path="/categories/:slug" component={Category} />
           
-          <Route path="/brands/:main_category_slug/:slug" component={Brand} />
+          <Route path="/mainCategory/:main_category_slug/brands/:slug" component={Brand} />
           <Route path="/brands/:slug" component={Brand} />
           
           <Route path="/videos/:slug" component={Video} />

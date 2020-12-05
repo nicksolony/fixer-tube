@@ -15,7 +15,7 @@ const MainCategory = (props) => {
         )
     } else {
         const mainCategory = props.mainCategories.find((cat)=>cat.slug===props.match.params.slug);
-        const categories = mainCategory.categories;
+        const categories = props.categories.filter(category=>category.main_category_id === mainCategory.id);
         // const brands = mainCategory.brands.filter((obj, pos, arr) => {
         //     return arr.map(mapObj => mapObj['id']).indexOf(obj['id']) === pos;
         // });
@@ -23,8 +23,6 @@ const MainCategory = (props) => {
         const videos = []
         categories.map(category=> videos.push(props.videos.filter(video=>video.category_id ===category.id)))
         const brandIds = videos.flat(2).map(vid=>{return vid.brand_id})
-
-           
         const brands = props.brands.filter(brand=>brandIds.includes(brand.id))
 
 
@@ -45,7 +43,7 @@ const MainCategory = (props) => {
                                 )}
                             </td>
                             <td aligh="right">{brands.map(brand=>
-                                <ListItem item={brand} mainCat={mainCategory} url={`/brands/${mainCategory.slug}`}key={`brand${brand.id}`}/>
+                                <ListItem item={brand} mainCat={mainCategory} url={`/mainCategory/${mainCategory.slug}`}key={`brand${brand.id}`}/>
                                 )}
                             </td>
                         </tr>
