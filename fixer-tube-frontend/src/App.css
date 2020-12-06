@@ -75,3 +75,7 @@ box-sizing: border-box;
   flex-flow: row wrap;
   align-items: center;
 }
+
+.logo {
+  text-align: center;
+}

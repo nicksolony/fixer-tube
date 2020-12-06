@@ -8,7 +8,7 @@ class Header extends Component {
     render() {
         return(
             <div>
-                <h1>Logo will be here</h1>
+                <h1 className='logo'>Logo will be here</h1>
                 <Navbar />
                < MainCategories />
             </div>
