@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { redirect } from "react-router-dom";
+import {withRouter} from "react-router-dom"
 
 class Search extends Component {
 
@@ -9,12 +9,14 @@ class Search extends Component {
 
     handleChange = (e) => {
         this.setState({searchValue:e.target.value})
+        console.log(this.props);
+        
     }
 
     search = (e)=>{
-        e.preventDefault()
-        
-        this.setState({searchValue:""})
+        e.preventDefault();
+        this.props.history.push(`/search=${this.state.searchValue}`);
+        this.setState({searchValue:""});
     }
 
 
@@ -29,4 +31,4 @@ class Search extends Component {
 }
 
 
-export default Search;
+export default withRouter(Search);

@@ -13,6 +13,8 @@ import Brand from './components/Brand';
 import Video from './components/Video';
 
 
+
+
 class App extends Component {
   componentDidMount() {
     this.props.loadDataFromDb()
