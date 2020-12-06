@@ -6,7 +6,7 @@ import Header from './Header';
 
 class EditVideo extends Component {
     
-    // this.props.videos.find(video=>video.slug===this.props.match.params.slug).name
+    video = this.props.videos.find(video=>video.slug===this.props.match.params.slug)
 
     state = {
         name: "",
@@ -24,13 +24,13 @@ class EditVideo extends Component {
     };
 
     componentDidMount() {
-        const video = this.props.videos.find(video=>video.slug===this.props.match.params.slug)
-        this.setState({name: video.name,
-             description:video.description,
-             url:video.url,
-             brandId:video.brand_id,
-             categoryId:video.category_id,
-             slug: video.slug,
+        
+        this.setState({name: this.video.name,
+             description: this.video.description,
+             url: this.video.url,
+             brandId:this.video.brand_id,
+             categoryId:this.video.category_id,
+             slug: this.video.slug,
              errors: {
                  name:"",
                  url:"",
@@ -135,8 +135,8 @@ class EditVideo extends Component {
         const categories = this.props.categories.map(category=>({ value: category.id, label: category.name }));
         const {errors} = this.state;
         let video={}
-        if (this.props.videos.find(video=>video.slug===this.props.match.params.slug)) {
-            video = this.props.videos.find(video=>video.slug===this.props.match.params.slug)
+        if (this.video) {
+            video = this.video
         } else {
             video = this.props.videos.find(video=>video.slug===this.props.editedVideo.slug)
         }

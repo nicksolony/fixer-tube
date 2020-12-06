@@ -50,20 +50,17 @@ export const editVideo = (editedVideo,history) => {
 };
 
 
-export const deleteVideo = (video,history) = {
-    return (dispatch) => {
+export const deleteVideo = (video,history) => {
+    
+    return ((dispatch) => {
         fetch(`http://localhost:3001/videos/${video.slug}`,{
             method: 'delete',
             headers: {
                 'Content-Type':'application/json',
                 'Accepts':'application/json'
-            },
-            body: JSON.stringify(video)
+            }
         })
-        .then(resp => resp.json())
-        .then(deletedObj => {
-            dispatch({type: DELETE_VIDEO, payload: video.id})
-            history.push(`/videos/${editedVideoObj.slug}`)
+        dispatch({type: DELETE_VIDEO, payload: video.id})
+        history.push(`/`)
         })
     }
-}

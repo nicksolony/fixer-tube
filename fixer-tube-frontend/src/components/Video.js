@@ -1,18 +1,20 @@
 import React,{Component} from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
-import {loadData} from "../redux/actions/videoActions"
+import {deleteVideo, loadData} from "../redux/actions/videoActions"
 import Header from './Header';
 
 
 class Video extends Component {
     
+    video = this.props.videos.find(video=>video.slug===this.props.match.params.slug)
+
     handleEdit = () =>{
         this.props.history.push(`/videos/${this.props.match.params.slug}/edit`);
     }
 
     handleDelete = () =>{
-        console.log(`delete - ${this.props.match.params.slug}`)
+        this.props.deleteVideo(this.video,this.props.history)
     }
     
     
@@ -25,7 +27,8 @@ class Video extends Component {
         )
     } else {
 
-        const {name, description, url,brand_id,category_id} = this.props.videos.find(video=>video.slug===this.props.match.params.slug);
+        if (this.video) {
+        const {name, description, url,brand_id,category_id} = this.video;
         const shortUrl = url.split("https://www.youtube.com/watch?v=")[1]
         const link = `https://www.youtube.com/embed/${shortUrl}`
         const brand=this.props.brands.find((brand)=>brand.id===brand_id)
@@ -47,6 +50,9 @@ class Video extends Component {
                 
             </div>
         )
+        } else {
+            this.props.history.push('/');
+        }
     }
 }   
 }
@@ -55,7 +61,8 @@ const mapStateToProps = (store) => store.main;
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadDataFromDb: () => dispatch(loadData())
+        loadDataFromDb: () => dispatch(loadData()),
+        deleteVideo: (video,history) => dispatch(deleteVideo(video,history))
     }
   }
 
