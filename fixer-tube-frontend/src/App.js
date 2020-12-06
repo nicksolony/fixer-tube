@@ -13,6 +13,7 @@ import Brand from './components/Brand';
 import Video from './components/Video';
 import SearchResults from './components/SearchResults';
 import EditVideo from './components/EditVideo';
+import Header from './components/Header';
 
 
 
@@ -26,7 +27,7 @@ class App extends Component {
      return (
       <div className="App">
       <Router>
-        <Navbar />
+        <Header/>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/videos/new" component={NewVideo} />

@@ -1,17 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
-import {loadData} from "../redux/actions/videoActions"
+import LoadData from './LoadData'
 import Header from "./Header"
 
 
 const Category = (props) => {
     
-    if (props.mainCategories==="") {
-        props.loadDataFromDb()
-        return (
-            <div>LOADING...</div>
-        )
+    if (props.mainCategories.length<1) {
+        return (<LoadData/>)
     } else {
         const category = props.categories.find((category)=>category.slug===props.match.params.slug); 
         const videos = props.videos.filter(video=>video.category_id===category.id).sort(comprare)
@@ -31,9 +28,7 @@ const Category = (props) => {
           }
         return (
             <div>
-                {/* <h1>this is a site that you can find fixes on</h1>
-                <MainCategories /> */}
-                <Header/>
+                {/* <Header/> */}
                 <div className="mainCategoryListing">
                     <h1>{category.name}</h1>
                     <h2>Videos</h2>
@@ -57,11 +52,5 @@ const Category = (props) => {
 
 const mapStateToProps = (store) => store.main;
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        loadDataFromDb: () => dispatch(loadData())
-    }
-  }
-
-export default connect (mapStateToProps,mapDispatchToProps)(Category);
+export default connect (mapStateToProps)(Category);
 

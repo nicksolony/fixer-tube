@@ -7,7 +7,7 @@ import MainCategoryBtn from "./MainCategoryBtn"
 class MainCategories extends Component {
 
     render() {
-        if (this.props.mainCategories==="") {
+        if (this.props.mainCategorie<1) {
             return (
                 <div>LOADING...</div>
             )

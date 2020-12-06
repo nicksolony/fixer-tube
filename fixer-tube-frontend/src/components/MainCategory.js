@@ -1,25 +1,20 @@
 import React from 'react';
 import { connect } from "react-redux";
-import {loadData} from "../redux/actions/videoActions"
 import ListItem from './ListItem';
 import Header from './Header';
 import BrandItem from './BrandItem';
+import LoadData from './LoadData';
 
 
 
 const MainCategory = (props) => {
     
-    if (props.mainCategories==="") {
-        props.loadDataFromDb()
-        return (
-            <div>LOADING...</div>
-        )
+    if (props.mainCategories.length<1) {
+        return (<LoadData/>)
     } else {
         const mainCategory = props.mainCategories.find((cat)=>cat.slug===props.match.params.slug);
         const categories = props.categories.filter(category=>category.main_category_id === mainCategory.id);
-        // const brands = mainCategory.brands.filter((obj, pos, arr) => {
-        //     return arr.map(mapObj => mapObj['id']).indexOf(obj['id']) === pos;
-        // });
+       
 
         const videos = []
         categories.map(category=> videos.push(props.videos.filter(video=>video.category_id ===category.id)))
@@ -29,7 +24,7 @@ const MainCategory = (props) => {
 
         return (
             <div>
-               < Header/>
+              
                 <div className="mainCategoryListing">
                     <h1>{mainCategory.name}</h1>
                     <table align="center" margin-right="200px">
@@ -64,11 +59,6 @@ const MainCategory = (props) => {
 
 const mapStateToProps = (store) => store.main;
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        loadDataFromDb: () => dispatch(loadData())
-    }
-  }
 
-export default connect (mapStateToProps,mapDispatchToProps)(MainCategory);
+export default connect (mapStateToProps)(MainCategory);
 

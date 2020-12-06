@@ -22,7 +22,7 @@ class NewVideo extends Component {
 
     handleChange = (e) => {
         
-        // this.setState({[e.target.name]: e.target.value});
+       
 
         const {name, value} = e.target;
         let errors = this.state.errors;
@@ -126,7 +126,6 @@ class NewVideo extends Component {
         const {errors} = this.state;
         return(
             <div>
-                <Header/>
                 <div className="mainCategoryListing"> 
                     
                     <form onSubmit={this.handleSubmit}>

@@ -1,8 +1,8 @@
 import React,{Component} from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
-import {deleteVideo, loadData} from "../redux/actions/videoActions"
-import Header from './Header';
+import {deleteVideo} from "../redux/actions/videoActions"
+import LoadData from './LoadData';
 
 
 class Video extends Component {
@@ -20,12 +20,9 @@ class Video extends Component {
     
     render() {
     
-    if (this.props.mainCategories==="") {
-        this.props.loadDataFromDb()
-        return (
-            <div>LOADING...</div>
-        )
-    } else {
+        if (this.props.mainCategories.length<1) {
+            return (<LoadData/>)
+        } else {
 
         if (this.video) {
         const {name, description, url,brand_id,category_id} = this.video;
@@ -36,7 +33,6 @@ class Video extends Component {
         
         return (
             <div>
-                <Header/>
                 <h2>
                     {name} 
                     <input type="submit" value="✏️" onClick={this.handleEdit}/>
@@ -61,7 +57,6 @@ const mapStateToProps = (store) => store.main;
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadDataFromDb: () => dispatch(loadData()),
         deleteVideo: (video,history) => dispatch(deleteVideo(video,history))
     }
   }

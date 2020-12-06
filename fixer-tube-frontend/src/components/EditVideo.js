@@ -144,7 +144,6 @@ class EditVideo extends Component {
         const brand = this.props.brands.find(brand => brand.id===video.brand_id)
         const category = this.props.categories.find(category => category.id===video.category_id)
         
-        // const brand= this.props.brands.find
       
         return(
             <div>

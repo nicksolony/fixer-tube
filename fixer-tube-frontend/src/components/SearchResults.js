@@ -3,15 +3,13 @@ import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
 import {loadData} from "../redux/actions/videoActions"
 import Header from "./Header"
+import LoadData from './LoadData';
 
 
 const SearchResults = (props) => {
     
-    if (props.mainCategories==="") {
-        props.loadDataFromDb()
-        return (
-            <div>LOADING...</div>
-        )
+    if (props.mainCategories.length<1) {
+        return (<LoadData/>)
     } else {
         const brands = props.brands;
         const categories = props.categories
@@ -36,7 +34,6 @@ const SearchResults = (props) => {
           }
         return (
             <div>
-                <Header/>
                 <div className="mainCategoryListing">
                     <h1>Search resulst for: {props.match.params.searchValue}</h1>
                     <ul>
@@ -62,11 +59,5 @@ const SearchResults = (props) => {
 
 const mapStateToProps = (store) => store.main;
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        loadDataFromDb: () => dispatch(loadData())
-    }
-  }
-
-export default connect (mapStateToProps, mapDispatchToProps)(SearchResults);
+export default connect (mapStateToProps)(SearchResults);
 

@@ -2,8 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
 // import MainCategories from "./MainCategories"
-import {loadData} from "../redux/actions/videoActions"
+// import {loadData} from "../redux/actions/videoActions"
 import Header from './Header';
+import LoadData from './LoadData';
 
 function comprare(a, b) {
     const videoA = a.name.toUpperCase();
@@ -21,7 +22,7 @@ function comprare(a, b) {
 function returnResults(mainCategory,brand,videos, categories) {
     return (
         <div>
-            <Header />
+            {/* <Header /> */}
             <div className="mainCategoryListing">
                { !!mainCategory ? <h1>{mainCategory.name} - {brand.name}</h1>: <h1>{brand.name}</h1>}
                 
@@ -44,11 +45,8 @@ function returnResults(mainCategory,brand,videos, categories) {
 
 const Brand = (props) => {
     
-    if (props.mainCategories==="") {
-        props.loadDataFromDb()
-        return (
-            <div>LOADING...</div>
-        )
+    if (props.mainCategories.length<1) {
+        return (<LoadData/>)
     } else {
         const mainCategory = props.mainCategories.find((cat)=>cat.slug===props.match.params.main_category_slug);
         const brand = props.brands.find((brand)=>brand.slug===props.match.params.slug);
@@ -74,11 +72,6 @@ const Brand = (props) => {
 
 const mapStateToProps = (store) => store.main;
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        loadDataFromDb: () => dispatch(loadData())
-    }
-  }
 
-export default connect (mapStateToProps,mapDispatchToProps)(Brand);
+export default connect (mapStateToProps)(Brand);
 
