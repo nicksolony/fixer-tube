@@ -8,7 +8,7 @@ import Header from './Header';
 class Video extends Component {
     
     handleEdit = () =>{
-        console.log(`edit - ${this.props.match.params.slug}`);
+        this.props.history.push(`/videos/${this.props.match.params.slug}/edit`);
     }
 
     handleDelete = () =>{

@@ -12,6 +12,7 @@ import Category from './components/Category';
 import Brand from './components/Brand';
 import Video from './components/Video';
 import SearchResults from './components/SearchResults';
+import EditVideo from './components/EditVideo';
 
 
 
@@ -29,6 +30,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/videos/new" component={NewVideo} />
+          <Route path="/videos/:slug/edit" component={EditVideo} />
           <Route path="/main_categories/:slug" component={MainCategory} />
           
           <Route path="/categories/:slug" component={Category} />
