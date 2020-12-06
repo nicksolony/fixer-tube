@@ -40,6 +40,10 @@ export default function videoReducer (state = {mainCategories:"",brands:[],categ
                 videos: updatedArr,
                 editedVideo: action.payload
             }
+        case 'DELETE_VIDEO':
+            return {...state,
+                videos: state.videos.filter(video=>video.id !== action.payload)
+            }
         default:
             return state;
     }

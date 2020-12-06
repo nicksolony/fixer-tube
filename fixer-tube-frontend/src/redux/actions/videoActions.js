@@ -1,6 +1,7 @@
 const LOAD_DATA = 'LOAD_DATA';
 const ADD_VIDEO = 'ADD_VIDEO';
 const EDIT_VIDEO = 'EDIT_VIDEO';
+const DELETE_VIDEO = 'DELETE_VIDEO';
 
 export const loadData = () => {
     return (dispatch) => {
@@ -47,3 +48,22 @@ export const editVideo = (editedVideo,history) => {
         })
     }
 };
+
+
+export const deleteVideo = (video,history) = {
+    return (dispatch) => {
+        fetch(`http://localhost:3001/videos/${video.slug}`,{
+            method: 'delete',
+            headers: {
+                'Content-Type':'application/json',
+                'Accepts':'application/json'
+            },
+            body: JSON.stringify(video)
+        })
+        .then(resp => resp.json())
+        .then(deletedObj => {
+            dispatch({type: DELETE_VIDEO, payload: video.id})
+            history.push(`/videos/${editedVideoObj.slug}`)
+        })
+    }
+}
