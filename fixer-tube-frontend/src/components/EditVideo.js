@@ -71,7 +71,6 @@ class EditVideo extends Component {
           }
         
           this.setState({errors, [name]: value})
-          console.log(this.state);
         
     };
 
@@ -109,7 +108,7 @@ class EditVideo extends Component {
             "category_id":video.categoryId,
             "slug":video.slug
         }
-        debugger
+        
         this.props.editVideo(editedVideo,this.props.history)
         
     };
@@ -129,16 +128,19 @@ class EditVideo extends Component {
         } else {
             alert("Please correct all errors")
         }
-    };
-    
-
-
+    }; 
 
     render(props) {
         const brands = this.props.brands.map(brand=>({ value: brand.id, label: brand.name }));
         const categories = this.props.categories.map(category=>({ value: category.id, label: category.name }));
         const {errors} = this.state;
-        const video = this.props.videos.find(video=>video.slug===this.props.match.params.slug)
+        let video={}
+        if (this.props.videos.find(video=>video.slug===this.props.match.params.slug)) {
+            video = this.props.videos.find(video=>video.slug===this.props.match.params.slug)
+        } else {
+            video = this.props.videos.find(video=>video.slug===this.props.editedVideo.slug)
+        }
+        
         const brand = this.props.brands.find(brand => brand.id===video.brand_id)
         const category = this.props.categories.find(category => category.id===video.category_id)
         
@@ -204,11 +206,16 @@ class EditVideo extends Component {
         )
     }
 }
+
+
+
+
 const mapStateToProps = (store) => store.main;
 const mapDispatchToProps = (dispatch) => {
     return {
         editVideo: (editedVideo,history) => dispatch(editVideo(editedVideo,history))
     }
   }
+
 
 export default connect(mapStateToProps,mapDispatchToProps)(EditVideo);

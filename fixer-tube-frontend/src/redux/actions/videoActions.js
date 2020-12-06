@@ -30,7 +30,7 @@ export const addVideo = (newVideo,history) => {
 };
 
 export const editVideo = (editedVideo,history) => {
-    console.log(editedVideo);
+    
     return (dispatch) => {
         fetch(`http://localhost:3001/videos/${editedVideo.slug}`,{
             method: 'put',
