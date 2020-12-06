@@ -1,20 +1,24 @@
 import React, {Component} from 'react';
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import Search from './Search';
 
-class Navbar extends Component {
-    render() {
+const Navbar = () => {
+
+
+    
         return(
             <div className='NavBar'>
                 <p>
                 <Link to="/">Home</Link>
-                <span> | </span>         
+                <span> | </span>
                 <Link to="/videos/new">Add Video</Link>
+                <span> | </span>
+                <Search />        
                 </p>
             </div>
         )
     }
-}
+
 
 
 export default Navbar;

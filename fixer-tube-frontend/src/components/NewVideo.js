@@ -172,7 +172,7 @@ class NewVideo extends Component {
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><input type="submit"/></td>
+                                <td><input type="submit" value="Add Video"/></td>
                             </tr>
                             </tbody>
                         </table>   
