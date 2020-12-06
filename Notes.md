@@ -2,11 +2,11 @@ Still need to build out:
 
 1. Error Handling - https://www.telerik.com/blogs/up-and-running-with-react-form-validation - DONE
 2. Search Bar - https://medium.com/@reneecruz/search-bar-in-react-js-in-six-simple-steps-4849118b2134 -DONE
-3. Edit Video
-4. Delete Video
-5. Finish design: add logo, update icons, etc
-6. fix http://localhost:3000/brands/kitchen/ge to be http://localhost:3000/brands/kitchen/brands/ge and make sure it displays only related items - DONE
-7. Abstract loding within components if state is empty, change mainCategories in reducer from "" to array []. mainCategories:"",brands:[],categories:[],videos:[]},action) {
+3. Edit Video - DONE
+4. Delete Video - DONE
+5. fix http://localhost:3000/brands/kitchen/ge to be http://localhost:3000/brands/kitchen/brands/ge and make sure it displays only related items - DONE
+6. Abstract loading within components if state is empty, change mainCategories in reducer from "" to array []. mainCategories:"",brands:[],categories:[],videos:[]},action) {
+7. Finish design: add logo, update icons, etc
 
 
 
