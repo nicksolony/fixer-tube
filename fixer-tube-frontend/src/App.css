@@ -25,6 +25,13 @@
   float: left;
   width: min-content;
 }
+
+.newEditVideo {
+  margin-left: 200px;
+  float: left;
+  width: fit-content;
+}
+
 .mainCategory:hover, .navItem:hover {
     background-color: grey;
 }

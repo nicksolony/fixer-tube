@@ -146,7 +146,7 @@ class EditVideo extends Component {
       
         return(
             <div>
-                <div className="mainCategoryListing"> 
+                <div className="newEditVideo"> 
                     
                     <form onSubmit={this.handleSubmit}>
                         <table>
