@@ -5,8 +5,10 @@ Still need to build out:
 3. Edit Video - DONE
 4. Delete Video - DONE
 5. fix http://localhost:3000/brands/kitchen/ge to be http://localhost:3000/brands/kitchen/brands/ge and make sure it displays only related items - DONE
-6. Abstract loading within components if state is empty, change mainCategories in reducer from "" to array []. mainCategories:"",brands:[],categories:[],videos:[]},action) {
+6. Abstract loading within components if state is empty, change mainCategories in reducer from "" to array []. mainCategories:"",brands:[],categories:[],videos:[]},action) { - DONE
 7. Finish design: add logo, update icons, etc
+8. Populate database
+9. write blog
 
 
 

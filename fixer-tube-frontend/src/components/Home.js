@@ -7,7 +7,7 @@ class Home extends Component {
     render() {
         return(
             <div>
-               < SlideShow className="SlideShow"/>
+               <SlideShow className="SlideShow"/>
             </div>
         )
     }

@@ -147,7 +147,6 @@ class EditVideo extends Component {
       
         return(
             <div>
-                <Header/>
                 <div className="mainCategoryListing"> 
                     
                     <form onSubmit={this.handleSubmit}>

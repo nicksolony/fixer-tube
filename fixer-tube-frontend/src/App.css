@@ -11,13 +11,19 @@
 }
 
 .SlideShow {
-  margin-right: 50px;
   float: right;
+  margin-right: 50px;
 }
 
 .mainCategoryListing {
-  margin-left: 50px;
+  margin-left: 350px;
   float: left;
+}
+
+.video {
+  margin-left: 350px;
+  float: left;
+  width: min-content;
 }
 .mainCategory:hover, .navItem:hover {
     background-color: grey;

@@ -32,7 +32,7 @@ class Video extends Component {
         const category=this.props.categories.find((category) =>category.id===category_id)
         
         return (
-            <div>
+            <div className="video">
                 <h2>
                     {name} 
                     <input type="submit" value="✏️" onClick={this.handleEdit}/>
