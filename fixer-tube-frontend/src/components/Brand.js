@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
 // import MainCategories from "./MainCategories"
 // import {loadData} from "../redux/actions/videoActions"
-import Header from './Header';
+
 import LoadData from './LoadData';
 
 function comprare(a, b) {
@@ -22,7 +22,6 @@ function comprare(a, b) {
 function returnResults(mainCategory,brand,videos, categories) {
     return (
         <div>
-            {/* <Header /> */}
             <div className="mainCategoryListing">
                { !!mainCategory ? <h1>{mainCategory.name} - {brand.name}</h1>: <h1>{brand.name}</h1>}
                 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
 import ListItem from './ListItem';
-import Header from './Header';
 import BrandItem from './BrandItem';
 import LoadData from './LoadData';
 

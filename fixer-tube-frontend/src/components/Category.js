@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
 import LoadData from './LoadData'
-import Header from "./Header"
+
 
 
 const Category = (props) => {
@@ -28,7 +28,6 @@ const Category = (props) => {
           }
         return (
             <div>
-                {/* <Header/> */}
                 <div className="mainCategoryListing">
                     <h1>{category.name}</h1>
                     <h2>Videos</h2>

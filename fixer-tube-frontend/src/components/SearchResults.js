@@ -1,8 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
-import {loadData} from "../redux/actions/videoActions"
-import Header from "./Header"
 import LoadData from './LoadData';
 
 

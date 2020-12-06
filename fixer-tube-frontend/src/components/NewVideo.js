@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { connect } from "react-redux";
 import Select from 'react-select';
 import { addVideo } from "../redux/actions/videoActions";
-import Header from './Header';
 
 class NewVideo extends Component {
 

@@ -38,14 +38,13 @@ See user stories and models below for more details on functionality.
 ## Installation - // review install instructions for starting react app
 1. Clone git directory in the desired location.
 2. App Directory have 2 directories inside fixer-tube-backend and fixer-tube-frontend
-3. Open fixer-tube-backend
+3. Open fixer-tube-backend (cd fixer-tube-backend)
 4. Run bundle install
-5. Run rails db:migrate - to create databases
-6. Run rails db:seed - to populate sample data
-7. Run rails s - to start server
-8. When server is running navigate to fixer-tube-frontend
-9. Run yarn install
-10. Run yarn start
+5. Run rails db:reset 
+6. Run rails s - to start server
+7. When server is running navigate to fixer-tube-frontend (cd .. | cd fixer-tube-frontend)
+8. Run yarn install
+9. Run yarn start
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
