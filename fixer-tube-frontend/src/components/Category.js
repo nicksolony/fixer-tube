@@ -41,7 +41,7 @@ const Category = (props) => {
                         {videos.map(video=>
                           
                            <Link to={`/videos/${video.slug}`}>
-                               <li>{brands.find((brand)=>brand.id===video.brand_id).name} - {video.name}</li>
+                               <li key={video.id}>{brands.find((brand)=>brand.id===video.brand_id).name} - {video.name}</li>
                             </Link>
                         )}
                     </ul>
