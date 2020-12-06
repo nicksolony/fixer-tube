@@ -14,11 +14,11 @@ const SearchResults = (props) => {
         )
     } else {
         const brands = props.brands;
-
-        const videos = props.videos.filter(video=>
-            (video.name+", "+video.description+", " + brands.find(brand=>brand.id===video.brand_id).name).toUpperCase().includes(props.match.params.searchValue.toUpperCase())
-            ).sort(comprare)
         const categories = props.categories
+        const videos = props.videos.filter(video=>
+            (video.name+", "+video.description+", " + brands.find(brand=>brand.id===video.brand_id).name+", "+categories.find(category=>category.id===video.category_id).name).toUpperCase().includes(props.match.params.searchValue.toUpperCase())
+            ).sort(comprare)
+        
         
         
 
