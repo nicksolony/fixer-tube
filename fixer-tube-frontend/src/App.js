@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import Home from './components/Home';
 import NewVideo from './components/NewVideo'
 import { connect } from 'react-redux';

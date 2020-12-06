@@ -44,7 +44,8 @@ See user stories and models below for more details on functionality.
 6. Run rails db:seed - to populate sample data
 7. Run rails s - to start server
 8. When server is running navigate to fixer-tube-frontend
-9. Open index.html
+9. Run yarn install
+10. Run yarn start
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
