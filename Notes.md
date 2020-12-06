@@ -1,7 +1,7 @@
 Still need to build out:
 
 1. Error Handling - https://www.telerik.com/blogs/up-and-running-with-react-form-validation - DONE
-2. Search Bar - https://medium.com/@reneecruz/search-bar-in-react-js-in-six-simple-steps-4849118b2134 -
+2. Search Bar - https://medium.com/@reneecruz/search-bar-in-react-js-in-six-simple-steps-4849118b2134 -DONE
 3. Edit Video
 4. Delete Video
 5. Finish design: add logo, update icons, etc

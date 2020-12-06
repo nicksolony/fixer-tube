@@ -11,6 +11,7 @@ import MainCategory from './components/MainCategory';
 import Category from './components/Category';
 import Brand from './components/Brand';
 import Video from './components/Video';
+import SearchResults from './components/SearchResults';
 
 
 
@@ -36,6 +37,7 @@ class App extends Component {
           <Route path="/brands/:slug" component={Brand} />
           
           <Route path="/videos/:slug" component={Video} />
+          <Route path="/search=:searchValue" component={SearchResults} />
           <Redirect from="/videos/" to="/" />
           <Redirect from="/brands" to="/" />
           <Redirect from="/categories" to="/" />

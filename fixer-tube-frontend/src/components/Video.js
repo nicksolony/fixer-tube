@@ -14,7 +14,7 @@ const Video = (props) =>{
         )
     } else {
 
-        const {name, description, url,brand_id,category_id} =   props.videos.find(video=>video.slug===props.match.params.slug);
+        const {name, description, url,brand_id,category_id} = props.videos.find(video=>video.slug===props.match.params.slug);
         const shortUrl = url.split("https://www.youtube.com/watch?v=")[1]
         const link = `https://www.youtube.com/embed/${shortUrl}`
         const brand=props.brands.find((brand)=>brand.id===brand_id)
