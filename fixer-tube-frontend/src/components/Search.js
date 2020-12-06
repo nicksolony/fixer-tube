@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import { redirect } from "react-router-dom";
 
 class Search extends Component {
 
@@ -9,16 +9,21 @@ class Search extends Component {
 
     handleChange = (e) => {
         this.setState({searchValue:e.target.value})
-        console.log(this.state);
+    }
+
+    search = (e)=>{
+        e.preventDefault()
+        
+        this.setState({searchValue:""})
     }
 
 
     render() {
         return(
-            <span>
+            <form className="SearchForm" onSubmit={this.search}>
                 <input type="text" value={this.state.searchValue} placeholder="Find how to fix it" onChange={this.handleChange}/>
                 <input type="submit" value="Search"/>
-            </span>
+            </form>
         )
     }
 }
