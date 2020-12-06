@@ -1,5 +1,6 @@
 class ApplicationRecord < ActiveRecord::Base
   before_create :set_slug
+  before_update :set_slug
   
   self.abstract_class = true
 

@@ -109,7 +109,7 @@ class EditVideo extends Component {
             "category_id":video.categoryId,
             "slug":video.slug
         }
-        
+        debugger
         this.props.editVideo(editedVideo,this.props.history)
         
     };

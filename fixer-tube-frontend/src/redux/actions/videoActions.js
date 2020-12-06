@@ -43,7 +43,7 @@ export const editVideo = (editedVideo,history) => {
         .then(resp => resp.json())
         .then(editedVideoObj => {
             dispatch({type: EDIT_VIDEO, payload: editedVideoObj})
-            history.push(`${editedVideoObj.slug}`)
+            history.push(`/videos/${editedVideoObj.slug}`)
         })
     }
 };

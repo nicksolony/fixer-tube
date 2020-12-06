@@ -29,9 +29,8 @@ export default function videoReducer (state = {mainCategories:"",brands:[],categ
                 newVideo: action.payload
             }
         case 'EDIT_VIDEO':
-            state.videos.push(action.payload)
             const updatedArr = state.videos.map(video=>{
-                if (video.slug !== action.payload.slug) {
+                if (video.id !== action.payload.id) {
                     return video
                 } else {
                     return action.payload
