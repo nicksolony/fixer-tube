@@ -111,7 +111,6 @@ class NewVideo extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.errors);
         if (this.validateForm(this.state.errors)) {
             this.createNewVideo(this.state);
         } else {
