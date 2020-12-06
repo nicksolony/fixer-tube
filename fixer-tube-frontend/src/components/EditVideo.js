@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux";
 import Select from 'react-select';
-import { addVideo } from "../redux/actions/videoActions";
+import { editVideo } from "../redux/actions/videoActions";
 import Header from './Header';
 
 class EditVideo extends Component {
@@ -14,6 +14,7 @@ class EditVideo extends Component {
         url:'',
         brandId:null,
         categoryId:null,
+        slug:'',
         errors: {
             name:"* Required",
             url:"* Required",
@@ -29,6 +30,7 @@ class EditVideo extends Component {
              url:video.url,
              brandId:video.brand_id,
              categoryId:video.category_id,
+             slug: video.slug,
              errors: {
                  name:"",
                  url:"",
@@ -98,24 +100,18 @@ class EditVideo extends Component {
 
     };
 
-    createNewVideo = (video) => {
-        const newVideo = {
+    editCurrentVideo = (video) => {
+        const editedVideo = {
             "name": video.name,
             "description": video.description,
             "url":video.url,
             "brand_id":video.brandId,
-            "category_id":video.categoryId
+            "category_id":video.categoryId,
+            "slug":video.slug
         }
         
-        this.props.addVideo(newVideo,this.props.history)
+        this.props.editVideo(editedVideo,this.props.history)
         
-        this.setState({
-            name:'',
-            description:'',
-            url:'',
-            brandId:null,
-            categoryId:null
-        })
     };
 
     validateForm = (errors) => {
@@ -129,9 +125,9 @@ class EditVideo extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         if (this.validateForm(this.state.errors)) {
-            this.createNewVideo(this.state);
+            this.editCurrentVideo(this.state);
         } else {
-            alert("Please fill in required fields")
+            alert("Please correct all errors")
         }
     };
     
@@ -198,7 +194,7 @@ class EditVideo extends Component {
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><input type="submit" value="Add Video"/></td>
+                                <td><input type="submit" value="Update Video"/></td>
                             </tr>
                             </tbody>
                         </table>   
@@ -211,7 +207,7 @@ class EditVideo extends Component {
 const mapStateToProps = (store) => store.main;
 const mapDispatchToProps = (dispatch) => {
     return {
-        addVideo: (newVideo,history) => dispatch(addVideo(newVideo,history))
+        editVideo: (editedVideo,history) => dispatch(editVideo(editedVideo,history))
     }
   }
 
