@@ -139,7 +139,7 @@ class NewVideo extends Component {
                                 </tr>
                             <tr>
                                 <td><label>Video Name: </   label></td>
-                                <td align="left"><textarea rows="1" cols="50" name="name" value= {this.state.name}  placeholder="Type name of your video here" className="css-singleValue" onChange={this.handleChange}/></td>
+                                <td align="left"><input type="text" size="47" name="name" value= {this.state.name}  placeholder="Type name of your video here" onChange={this.handleChange}/></td>
                                 <td>{errors.name.length > 0 && <span className='error'>{errors.name}</span>}</td>
                             </tr>
                             <tr>
