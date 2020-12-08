@@ -47,13 +47,17 @@
 
 #NavBar {
   text-align: left;
-  margin-left: 10px;
+  margin-left: 50px;
   display: flex;
   flex-flow: row wrap;
+  background-image: url("./images/Header.png");
+  height: 150px;
+  
 }
-.navItem {
-    margin: 0 5px;
+ {
+    
 }
+
 
 .error {
   color: red;
@@ -77,7 +81,8 @@ top: 50%;
 box-sizing: border-box;
 }
 
-.SearchForm {
+.navItem, .SearchForm {
+  margin: 0 10px;
   display: flex;
   flex-flow: row wrap;
   align-items: center;

@@ -8,7 +8,6 @@ class Header extends Component {
     render() {
         return(
             <div>
-                <h1 className='logo'>Logo will be here</h1>
                 <Navbar />
                < MainCategories />
             </div>
