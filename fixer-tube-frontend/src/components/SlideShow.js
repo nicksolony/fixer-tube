@@ -4,8 +4,8 @@ import React from 'react';
 const SlideShow = () => {
     return (
             
-                <img className='SlideShow' src='/images/slide.jpg' alt='slideshow' />
-            
+        <img className='SlideShow' src='/images/slide1.jpg' alt='slideshow' />
+        
     )
 }
 

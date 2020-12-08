@@ -46,6 +46,7 @@ class App extends Component {
           <Redirect from="/main_categories" to="/" />
 
         </Switch>
+        <div className="footer"></div>
       </Router>
     </div>
     );

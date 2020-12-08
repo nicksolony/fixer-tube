@@ -12,7 +12,8 @@
 
 .SlideShow {
   float: right;
-  margin-right: 50px;
+  margin-right: 200px;
+  width: 800px;
 }
 
 .mainCategoryListing {
@@ -112,3 +113,14 @@ a:active {
   text-decoration: underline;
 }
 
+.footer {
+  background-image: url(./images/Footer.png);
+  height: 5px;
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+ 
+}
