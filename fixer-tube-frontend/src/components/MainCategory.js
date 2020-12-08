@@ -19,6 +19,8 @@ const MainCategory = (props) => {
         categories.map(category=> videos.push(props.videos.filter(video=>video.category_id ===category.id)))
         const brandIds = videos.flat(2).map(vid=>{return vid.brand_id})
         const brands = props.brands.filter(brand=>brandIds.includes(brand.id))
+        const categoryIds = videos.flat(2).map(vid=>{return vid.category_id})
+        const selectedCategories = categories.filter(category=>categoryIds.includes(category.id))
 
 
         return (
@@ -32,7 +34,7 @@ const MainCategory = (props) => {
                             <td width="50%"><h2>Categories</h2></td>
                         </tr>
                         <tr>
-                            <td aligh="right">{categories.map(cat=>
+                            <td aligh="right">{selectedCategories.map(cat=>
                                 <ListItem item={cat} mainCat={mainCategory} url={'/categories'} key={`category${cat.id}`}/>
                                 )}
                             </td>
