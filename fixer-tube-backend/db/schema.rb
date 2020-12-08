@@ -10,44 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_28_220454) do
+ActiveRecord::Schema.define(version: 2020_11_26_224840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
+    t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.string "slug"
     t.bigint "main_category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
     t.index ["main_category_id"], name: "index_categories_on_main_category_id"
   end
 
   create_table "main_categories", force: :cascade do |t|
     t.string "name"
     t.string "icon_src"
+    t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
   end
 
   create_table "videos", force: :cascade do |t|
     t.string "name"
+    t.string "slug"
     t.string "description"
     t.string "url"
     t.bigint "brand_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
     t.index ["brand_id"], name: "index_videos_on_brand_id"
     t.index ["category_id"], name: "index_videos_on_category_id"
   end
