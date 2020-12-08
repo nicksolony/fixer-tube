@@ -11,8 +11,8 @@ mainCategories = MainCategory.create([
     {name:'Kitchen', icon_src:'/icons/kitchen.png'},
     {name:'Computers', icon_src:'/icons/computers.png'},
     {name:'HVAC', icon_src:'/icons/hvac.png'},
-    {name:'Washer/Dryer', icon_src:'/icons/washer.png'},
-    {name:'Other', icon_src:'/icons/toys.png'}
+    {name:'Washer/Dryer', icon_src:'/icons/laundry.png'},
+    {name:'Other', icon_src:'/icons/other.png'}
     ])
 
 categories = Category.create([
