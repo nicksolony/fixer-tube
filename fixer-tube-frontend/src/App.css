@@ -18,6 +18,7 @@
 .mainCategoryListing {
   margin-left: 350px;
   float: left;
+  width: 600px;
 }
 
 .video {
@@ -32,16 +33,12 @@
   width: fit-content;
 }
 
-.mainCategory:hover, .navItem:hover {
+.mainCategory:hover {
     background-color: grey;
 }
 
 .mainCategory:active {
-  background-color: rgb(0, 255, 157);
-}
-
-.App-link {
-  color: #61dafb;
+  background-color: grey;
 }
 
 
@@ -54,8 +51,13 @@
   height: 150px;
   
 }
- {
-    
+
+h1, h2{
+    color: #F1592A;
+}
+
+h3 {
+  color: black;
 }
 
 
@@ -91,3 +93,22 @@ box-sizing: border-box;
 .logo {
   text-align: center;
 }
+
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
