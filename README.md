@@ -43,7 +43,8 @@ See user stories and models below for more details on functionality.
 5. Run rails db:reset 
 6. Run rails s - to start server
 7. When server is running navigate to fixer-tube-frontend (cd .. | cd fixer-tube-frontend)
-8. Run yarn install
+8. Run node install
+9. Run yarn
 9. Run yarn start
 
 ## License
