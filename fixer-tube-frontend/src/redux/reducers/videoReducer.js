@@ -8,10 +8,10 @@ export default function videoReducer (state = {mainCategories:[],brands:[],categ
                 videos: action.payload.videos.sort((a, b) => a.name.localeCompare(b.name))
               }
         case 'ADD_VIDEO':
-            state.videos.push(action.payload)
-            const newArr = state.videos
+            // state.videos.push(action.payload)
+            // const newArr = 
             return {...state,
-                videos: newArr,
+                videos: [...state.videos, action.payload],
                 newVideo: action.payload
             }
         case 'EDIT_VIDEO':
