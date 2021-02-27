@@ -51,9 +51,9 @@ See user stories and models below for more details on functionality.
 https://youtu.be/6AuazvySc9U
 
 ## Live App
-# Back-end API
+### Back-end API
 https://fixer-tube-api.herokuapp.com/main_categories
-# Front-end
+### Front-end
 https://fixer-tube.herokuapp.com/
 
 ## License
