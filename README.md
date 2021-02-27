@@ -50,5 +50,11 @@ See user stories and models below for more details on functionality.
 ## Demo
 https://youtu.be/6AuazvySc9U
 
+## Live App
+# Back-end API
+https://fixer-tube-api.herokuapp.com/main_categories
+# Front-end
+https://fixer-tube.herokuapp.com/
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
